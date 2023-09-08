@@ -5,7 +5,8 @@ import 'package:pum_supervisor/presentation/initial_screens/login_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //await Firebase.initializeApp();
+
+
   await Firebase.initializeApp(
     name: 'pum_supervisor',
     options: FirebaseOptions(
