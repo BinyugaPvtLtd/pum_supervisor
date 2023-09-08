@@ -22,7 +22,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,6 +41,8 @@ class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
