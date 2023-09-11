@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
                         ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                     useMaterial3: true,
                   ),
-                  home: loginScreenSupervisor());
+                  home: LoginScreenSupervisor());
               //email == null ? LoginScreenWeb() : DashbordScreenview());
               // UserManagemntscreen());
               // );
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
                       ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                   useMaterial3: true,
                 ),
-                home:  loginScreenSupervisor(), //////////////////
+                home:  LoginScreenSupervisor(), //////////////////
               );
             }
           } else if (snapshot.connectionState == ConnectionState.waiting) {
