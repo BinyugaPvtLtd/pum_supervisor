@@ -3,7 +3,7 @@ import '../../resources/color_manager.dart';
 import '../../resources/font_manager.dart';
 import '../../resources/string_manager.dart';
 import '../../resources/value_manager.dart';
-import 'login_screen.dart';
+import 'login_supervisor.dart';
 
 class ThankyouscreenSupervisor extends StatefulWidget {
   const ThankyouscreenSupervisor({Key? key}) : super(key: key);

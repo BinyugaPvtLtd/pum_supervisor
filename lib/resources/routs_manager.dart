@@ -1,7 +1,7 @@
 // import 'package:flutter/cupertino.dart';
 // import 'package:flutter/material.dart';
-// import 'package:pheonix_mechano_native/android_screens/presentation/screens/authentication/forgot_screen/forgot_pass_screen.dart';
-// import 'package:pheonix_mechano_native/android_screens/presentation/screens/authentication/login_screen/login_screen.dart';
+// import 'package:pheonix_mechano_native/android_screens/presentation/screens/authentication/forgot_screen/forgotpass_supervisor_screen.dart';
+// import 'package:pheonix_mechano_native/android_screens/presentation/screens/authentication/login_screen/login_supervisor.dart';
 // import 'package:pheonix_mechano_native/android_screens/resources/string_manager.dart';
 // import '../../web_screens/admin_panel/presentation/dashbord_screen/dashbord_screen.dart';
 // import '../../web_screens/admin_panel/presentation/user management/user_management_screen.dart';

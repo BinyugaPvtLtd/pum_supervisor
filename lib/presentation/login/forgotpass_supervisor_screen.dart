@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pum_supervisor/presentation/initial_screens/thank_you_screen.dart';
+import 'package:pum_supervisor/presentation/login/thankyou_supervisor_screen.dart';
 import '../../resources/color_manager.dart';
 import '../../resources/font_manager.dart';
 import '../../resources/string_manager.dart';
