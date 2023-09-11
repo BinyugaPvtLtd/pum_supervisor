@@ -194,7 +194,7 @@ class _loginScreenSupervisorState extends State<loginScreenSupervisor> {
                         child: ElevatedButton(
                           focusNode: fieldTow,
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (_)=>DashborScreenUser()));
+                            Navigator.push(context, MaterialPageRoute(builder: (_)=>DashboardScreenUser()));
                           },
                           style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(

@@ -9,14 +9,14 @@ import 'package:pum_supervisor/user_responsive_screen/user_enum.dart';
 import 'package:pum_supervisor/user_responsive_screen/user_responsive_screen.dart';
 
 
-class DashborScreenUser extends StatefulWidget {
-  DashborScreenUser({super.key});
+class DashboardScreenUser extends StatefulWidget {
+  DashboardScreenUser({super.key});
 
   @override
-  State<DashborScreenUser> createState() => _DashborScreenUserState();
+  State<DashboardScreenUser> createState() => _DashboardScreenUserState();
 }
 
-class _DashborScreenUserState extends State<DashborScreenUser> {
+class _DashboardScreenUserState extends State<DashboardScreenUser> {
   bool checkValue = false;
   String? valueChoose;
   List ListItems =["SHIFT 1", "SHIFT 2", "SHIFT 3"];
