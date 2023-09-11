@@ -108,7 +108,7 @@ class _ThankyouscreenSupervisorState extends State<ThankyouscreenSupervisor> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                  const loginScreenSupervisor()),
+                                  const LoginScreenSupervisor()),
                             );
                           },
                           child: Text(

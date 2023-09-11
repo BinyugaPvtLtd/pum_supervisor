@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:pum_supervisor/presentation/dashboard/dashboardscreen.dart';
 import 'package:pum_supervisor/presentation/login/login_supervisor.dart';
+
 
 void main() async {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -33,13 +33,13 @@ class MyApp extends StatelessWidget {
               ///code For Web Application
               return MaterialApp(
                   debugShowCheckedModeBanner: false,
-                  title: 'Phoenix Mechano Web',
+                  title: 'PUM Supervisor',
                   theme: ThemeData(
                     colorScheme:
                         ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                     useMaterial3: true,
                   ),
-                  home: loginScreenSupervisor());
+                  home: LoginScreenSupervisor());
               //email == null ? LoginScreenWeb() : DashbordScreenview());
               // UserManagemntscreen());
               // );
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
                       ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                   useMaterial3: true,
                 ),
-                home: const loginScreenSupervisor(), //////////////////
+                home:  LoginScreenSupervisor(), //////////////////
               );
             }
           } else if (snapshot.connectionState == ConnectionState.waiting) {
