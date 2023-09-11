@@ -1,52 +1,89 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:pum_supervisor/presentation/dashboard/dashboardscreen.dart';
+import 'package:pum_supervisor/presentation/login/login_supervisor.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-
+  // WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    name: 'pum_supervisor',
-    options: FirebaseOptions(
-      appId: '1:562249955063:android:c3c0bbb1501ad36ea605f2',
-      apiKey: 'AIzaSyC9MFs7ybVaAs2pDCqGkUEhxn6jnIOpUqQ',
-      messagingSenderId: '562249955063',
-      projectId: 'pumsupervisor',
-    ),
-  );
-
-  runApp(MyApp());
+      options: const FirebaseOptions(
+          apiKey: "AIzaSyAcxHBCWobyOwUKDsqI_eZSlFDmOJ1WaaA",
+          appId: "1:748212548066:web:c3d3dbe6806c00551cc9bb",
+          messagingSenderId: "748212548066",
+          projectId: "phoenixmecano-dev"));
+  // SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  // var email = sharedPreferences.getString('adminEmail');
+  runApp(MyApp(
+      // email: email,
+      ));
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  var email;
+  MyApp({this.email, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const HomeScreen(),
-    );
-  }
-}
-
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-final FirebaseAuth _auth = FirebaseAuth.instance;
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Placeholder();
+    bool admin = true;
+    return FutureBuilder(
+        future: Firebase.initializeApp(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (admin == true) {
+              ///code For Web Application
+              return MaterialApp(
+                  debugShowCheckedModeBanner: false,
+                  title: 'Phoenix Mechano Web',
+                  theme: ThemeData(
+                    colorScheme:
+                        ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                    useMaterial3: true,
+                  ),
+                  home: DashboardSupervisor());
+              //email == null ? LoginScreenWeb() : DashbordScreenview());
+              // UserManagemntscreen());
+              // );
+            } else {
+              ///Code For Native Application
+              return MaterialApp(
+                debugShowCheckedModeBanner: false,
+                title: 'Phoenix Mechano android',
+                // onGenerateRoute: RouteGenerator.getRoute,
+                // initialRoute: Routes.LogIn,
+                theme: ThemeData(
+                  colorScheme:
+                      ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                  useMaterial3: true,
+                ),
+                home: const LoginSupervisor(), //////////////////
+              );
+            }
+          } else if (snapshot.connectionState == ConnectionState.waiting) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Phoenix Mechano',
+              theme: ThemeData(
+                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                useMaterial3: true,
+              ),
+              home: const Scaffold(
+                body: Center(child: CircularProgressIndicator()),
+              ),
+            );
+          } else {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Phoenix Mechano',
+              theme: ThemeData(
+                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                useMaterial3: true,
+              ),
+              home: const Scaffold(
+                body:
+                    Center(child: Center(child: Text("Something went wrong"))),
+              ),
+            );
+          }
+        });
   }
 }
