@@ -6,14 +6,14 @@ import '../../resources/string_manager.dart';
 import '../../resources/value_manager.dart';
 import 'forgotpass_supervisor_screen.dart';
 
-class loginScreenSupervisor extends StatefulWidget {
-  const loginScreenSupervisor({Key? key}) : super(key: key);
+class LoginScreenSupervisor extends StatefulWidget {
+  const LoginScreenSupervisor({Key? key}) : super(key: key);
 
   @override
-  State<loginScreenSupervisor> createState() => _loginScreenSupervisorState();
+  State<LoginScreenSupervisor> createState() => _LoginScreenSupervisorState();
 }
 
-class _loginScreenSupervisorState extends State<loginScreenSupervisor> {
+class _LoginScreenSupervisorState extends State<LoginScreenSupervisor> {
   FocusNode fieldOne = FocusNode();
   FocusNode fieldTow = FocusNode();
   @override
@@ -194,7 +194,7 @@ class _loginScreenSupervisorState extends State<loginScreenSupervisor> {
                         child: ElevatedButton(
                           focusNode: fieldTow,
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (_)=>DashboardScreenUser()));
+                            Navigator.push(context, MaterialPageRoute(builder: (_)=>DashboardScreen()));
                           },
                           style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(

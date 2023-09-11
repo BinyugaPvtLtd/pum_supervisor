@@ -9,14 +9,14 @@ import 'package:pum_supervisor/user_responsive_screen/user_enum.dart';
 import 'package:pum_supervisor/user_responsive_screen/user_responsive_screen.dart';
 
 
-class DashboardScreenUser extends StatefulWidget {
-  DashboardScreenUser({super.key});
+class DashboardScreen extends StatefulWidget {
+  DashboardScreen({super.key});
 
   @override
-  State<DashboardScreenUser> createState() => _DashboardScreenUserState();
+  State<DashboardScreen> createState() => _DashboardScreenState();
 }
 
-class _DashboardScreenUserState extends State<DashboardScreenUser> {
+class _DashboardScreenState extends State<DashboardScreen> {
   bool checkValue = false;
   String? valueChoose;
   List ListItems =["SHIFT 1", "SHIFT 2", "SHIFT 3"];
@@ -70,12 +70,12 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                     border: Border.all(color: ColorManager.faintb, width: 2),
                     borderRadius: BorderRadius.circular(10)
                 ),
-                padding: EdgeInsets.all(3),
+                //padding: EdgeInsets.all(3),
                 width: MediaQuery.of(context).size.width / 8,
                 height: MediaQuery.of(context).size.height / 23,
                 child: DropdownButton(
                   alignment: Alignment.center,
-                  hint: Text(ListItems[0]),
+                  hint: Text(ListItems[0],style: TextStyle(fontSize: MediaQuery.of(context).size.width / 80),),
                   value: valueChoose,
                   underline: SizedBox(),
                   isExpanded: true,
@@ -86,7 +86,9 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                     });
                   },
                   items: ListItems.map((ValueItem) {
-                    return DropdownMenuItem(value: ValueItem,child: Text(ValueItem),);
+                    return DropdownMenuItem(value: ValueItem,child: Text(ValueItem,style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width / 80
+                    ),),);
                   }).toList(),
                 )
             ),

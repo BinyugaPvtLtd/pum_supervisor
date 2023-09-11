@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pum_supervisor/presentation/dashboard/add_order_screen.dart';
+import 'package:pum_supervisor/presentation/dashboard/confirmed_order_screen.dart';
+import 'package:pum_supervisor/presentation/dashboard/dashboardscreen.dart';
 import 'package:pum_supervisor/resources/color_manager.dart';
 import 'package:pum_supervisor/resources/font_manager.dart';
 import 'package:pum_supervisor/resources/string_manager.dart';
@@ -85,19 +88,19 @@ class _UserSideBarState extends State<UserSideBar> {
                       //setState(() {
                       if (grpValue != appScreen) {
                         grpValue = appScreen;
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   PageRouteBuilder(
-                        //       transitionsBuilder: (_,
-                        //           Animation<double> animation,
-                        //           __,
-                        //           Widget child) {
-                        //         return FadeTransition(
-                        //             opacity: animation, child: child);
-                        //       },
-                        //       pageBuilder: (BuildContext context, _, __) =>
-                        //        DashbordScreenview()),
-                        // );
+                        Navigator.pushReplacement(
+                          context,
+                          PageRouteBuilder(
+                              transitionsBuilder: (_,
+                                  Animation<double> animation,
+                                  __,
+                                  Widget child) {
+                                return FadeTransition(
+                                    opacity: animation, child: child);
+                              },
+                              pageBuilder: (BuildContext context, _, __) =>
+                                  DashboardScreen()),
+                        );
                       }
                       //});
                     },
@@ -120,19 +123,19 @@ class _UserSideBarState extends State<UserSideBar> {
                       // setState(() {
                       if (grpValue != appScreen) {
                         grpValue = appScreen;
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   PageRouteBuilder(
-                        //       transitionsBuilder: (_,
-                        //           Animation<double> animation,
-                        //           __,
-                        //           Widget child) {
-                        //         return FadeTransition(
-                        //             opacity: animation, child: child);
-                        //       },
-                        //       pageBuilder: (BuildContext context, _, __) =>
-                        //           UserManagemntscreen()),
-                        // );
+                        Navigator.pushReplacement(
+                          context,
+                          PageRouteBuilder(
+                              transitionsBuilder: (_,
+                                  Animation<double> animation,
+                                  __,
+                                  Widget child) {
+                                return FadeTransition(
+                                    opacity: animation, child: child);
+                              },
+                              pageBuilder: (BuildContext context, _, __) =>
+                                  ConfirmedOrder()),
+                        );
                       }
                       // });
                     },
@@ -154,19 +157,19 @@ class _UserSideBarState extends State<UserSideBar> {
                       // setState(() {
                       if (grpValue != appScreen) {
                         grpValue = appScreen;
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   PageRouteBuilder(
-                        //       transitionsBuilder: (_,
-                        //           Animation<double> animation,
-                        //           __,
-                        //           Widget child) {
-                        //         return FadeTransition(
-                        //             opacity: animation, child: child);
-                        //       },
-                        //       pageBuilder: (BuildContext context, _, __) =>
-                        //           UserManagemntscreen()),
-                        // );
+                        Navigator.pushReplacement(
+                          context,
+                          PageRouteBuilder(
+                              transitionsBuilder: (_,
+                                  Animation<double> animation,
+                                  __,
+                                  Widget child) {
+                                return FadeTransition(
+                                    opacity: animation, child: child);
+                              },
+                              pageBuilder: (BuildContext context, _, __) =>
+                                  AddOrderScreen()),
+                        );
                       }
                       // });
                     },
