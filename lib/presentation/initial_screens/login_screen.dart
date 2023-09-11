@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pum_supervisor/presentation/dashbord.dart';
 
 import '../../resources/color_manager.dart';
 import '../../resources/font_manager.dart';
@@ -193,7 +194,9 @@ class _loginScreenSupervisorState extends State<loginScreenSupervisor> {
                         width: AppSize.s210,
                         child: ElevatedButton(
                           focusNode: fieldTow,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (_)=>DashborScreenUser()));
+                          },
                           style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(50),

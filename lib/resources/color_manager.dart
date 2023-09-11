@@ -10,6 +10,7 @@ class ColorManager {
   static Color lightblue = Color(0xfc3A74B4);
   static Color buttoncolor = Color(0xfc79AEF5);
   static Color sidebar = Color(0xffF6F6F6);
+  static Color green = Color(0xff4AA353);
 
   static Color navyblue = HexColor.fromHex('#163172');
   static Color faintgrey = HexColor.fromHex('#8B8781');

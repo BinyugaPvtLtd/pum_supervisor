@@ -154,7 +154,7 @@ class _ForgetScreenSupervisorState extends State<ForgetScreenSupervisor> {
                             child: ElevatedButton(
                               focusNode: fieldTow,
                               onPressed: () {
-                                Navigator.push(
+                                Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>

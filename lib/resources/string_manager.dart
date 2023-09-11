@@ -39,6 +39,9 @@ class AppString {
   static const String notFoundRoute = "Page Not Found";
 
   /// Dashbord  Screen
+  static const String pendingorder = "Pending Orders";
+  static const String confirmorder = "Confirmed Orders";
+  static const String addorder = "Add Order";
   static const String Dashbordhead = "Dashboard";
   static const String userMangment = "User Management";
   static const String forgotpass = "Forgot Password?";
