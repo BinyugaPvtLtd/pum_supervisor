@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pum_supervisor/presentation/initial_screens/thank_you_screen.dart';
+import 'package:pum_supervisor/presentation/login/thankyou_supervisor_screen.dart';
 import '../../resources/color_manager.dart';
 import '../../resources/font_manager.dart';
 import '../../resources/string_manager.dart';
@@ -154,7 +154,7 @@ class _ForgetScreenSupervisorState extends State<ForgetScreenSupervisor> {
                             child: ElevatedButton(
                               focusNode: fieldTow,
                               onPressed: () {
-                                Navigator.push(
+                                Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
