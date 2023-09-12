@@ -14,7 +14,7 @@ class ColorManager {
   static Color red = Color(0xffD93D3D);
 
 
-  static Color navyblue = HexColor.fromHex('#163172');
+  static Color navyblue = HexColor.fromHex('#004181');
   static Color faintgrey = HexColor.fromHex('#8B8781');
   static Color faintblueweb = HexColor.fromHex('#3A74B4');
   static Color faintgreybg = HexColor.fromHex('#f5f5f5');
