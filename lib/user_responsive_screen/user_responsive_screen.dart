@@ -150,6 +150,7 @@ class UserResponsiveScreen extends StatelessWidget {
                   behavior: ScrollConfiguration.of(context)
                       .copyWith(scrollbars: false),
                   child: ListView(
+                    scrollDirection: Axis.horizontal,
                     physics: NeverScrollableScrollPhysics(),
                     children: [
                       Container(
@@ -161,7 +162,7 @@ class UserResponsiveScreen extends StatelessWidget {
                         ),
                       ),
                       Container(
-                         color: Colors.green,
+                         //color: Colors.green,
                         height: 60,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,

@@ -26,8 +26,9 @@ class _TableHeadingWidgetState extends State<TableHeadingWidget> {
 
         padding: EdgeInsets.symmetric(horizontal: 0, vertical: 2),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: widget.fields.map((e) {
-            return Expanded(flex: 1, child: e);
+            return e;
           }).toList(),
         ),
       ),

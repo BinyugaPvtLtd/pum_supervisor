@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pum_supervisor/constant/table_card_widget.dart';
+import 'package:pum_supervisor/presentation/popups/success_popup.dart';
 import 'package:pum_supervisor/resources/color_manager.dart';
 import 'package:pum_supervisor/resources/value_manager.dart';
 
@@ -41,12 +43,21 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
               ),
               child: TextField(
                 textAlign: TextAlign.center,
-                //textAlignVertical: TextAlignVertical.center,
+                textAlignVertical: TextAlignVertical.center,
                 controller: datecontroller,
-                decoration: const InputDecoration(
+                decoration:  InputDecoration(
                   border: InputBorder.none,
                   hintText: 'From',
+                  hintStyle: TextStyle(fontFamily: FontConstants.fontFamily2,
+                    fontWeight: FontWeightManager.bold,
+                    color: ColorManager.black,),
+                  suffixIcon: Icon(Icons.keyboard_arrow_down_outlined),
                 ),
+                style: TextStyle(fontFamily: FontConstants.fontFamily2,
+                    fontWeight: FontWeightManager.bold,
+                    fontSize: MediaQuery.of(context).size.width / 80,
+                    color: ColorManager.black),
+
                 readOnly: true,
                 onTap: () async {
                   DateTime? date = DateTime(1900);
@@ -73,8 +84,12 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
                 width: MediaQuery.of(context).size.width / 8,
                 height: MediaQuery.of(context).size.height / 23,
                 child: DropdownButton(
+
                   alignment: Alignment.center,
-                  hint: Text(ListItems[0],style: TextStyle(fontSize: MediaQuery.of(context).size.width / 80),),
+                  hint: Text(ListItems[0],style: TextStyle(fontFamily: FontConstants.fontFamily2,
+                      fontWeight: FontWeightManager.bold,
+                      color: ColorManager.black,
+                      fontSize: MediaQuery.of(context).size.width / 80),),
                   value: valueChoose,
                   underline: SizedBox(),
                   isExpanded: true,
@@ -85,19 +100,17 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
                     });
                   },
                   items: ListItems.map((ValueItem) {
-                    return DropdownMenuItem(value: ValueItem,child: Text(ValueItem,style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.width / 80
-                    ),),);
+                    return DropdownMenuItem(value: ValueItem,child: Center(
+                      child: Text(ValueItem,style: TextStyle(
+                          fontFamily: FontConstants.fontFamily2,
+                          fontWeight: FontWeightManager.bold,
+                          color: ColorManager.black,
+                          fontSize: MediaQuery.of(context).size.width / 80
+                      ),),
+                    ),);
                   }).toList(),
                 )
             ),
-            SizedBox(width:MediaQuery.of(context).size.width / 2.3,),
-            // Container(
-            //     width: MediaQuery.of(context).size.width / 13,
-            //     height: MediaQuery.of(context).size.height / 20,
-            //     decoration: BoxDecoration(color: ColorManager.green,
-            //         borderRadius: BorderRadius.circular(10)),
-            //     child: TextButton(onPressed: (){}, child: const Text('Confirm',style: TextStyle(color: Colors.white),)))
           ],
         ),
       )],
@@ -106,16 +119,6 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
       heading: AppString.confirmorder,
       onBack: (){},
       tableHeading: TableHeadingWidget(fields: [
-        // Checkbox(value: checkValue,
-        //     activeColor: Colors.blueAccent,
-        //     side: BorderSide(color: ColorManager.white,
-        //         width: 3),
-        //     onChanged: (val){
-        //       setState(() {
-        //         checkValue = val!;
-        //       });
-        //
-        //     }),
         Text(" ",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
@@ -123,7 +126,6 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
               fontWeight: FontWeightManager.bold,
               fontSize: 15,
             )),
-
         Text(" ",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
@@ -202,6 +204,13 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
               fontWeight: FontWeightManager.bold,
               fontSize: 15,
             )),
+        Text("Confirmed Qty",
+            textAlign: TextAlign.center,
+            style: GoogleFonts.inter(
+              color: ColorManager.white,
+              fontWeight: FontWeightManager.bold,
+              fontSize: 15,
+            )),
         Text("Balanced Qty",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
@@ -210,7 +219,169 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
               fontSize: 15,
             )),
 
+
       ]),
-      table: Container(),);
+      table: ListView.builder(
+        //scrollDirection: Axis.horizontal,
+        //shrinkWrap: true,
+          itemCount: 10,
+          itemBuilder: (BuildContext context, index){
+            return ConfirmedTabelCardWidget(
+              fields: [
+                Text('Edit',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall
+                        ?.copyWith(
+                        fontFamily: FontConstants.fontFamily2,
+                        color: ColorManager.faintb,
+                        fontWeight: FontWeightManager.bold,
+                        fontSize: FontSize.s15_25),
+                    textAlign: TextAlign.center),
+                Text('Cancel',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall
+                        ?.copyWith(
+                        fontFamily: FontConstants.fontFamily2,
+                        color: ColorManager.red,
+                        fontWeight: FontWeightManager.medium,
+                        fontSize: FontSize.s15_25),
+                    textAlign: TextAlign.center),
+                InkWell(
+                  onTap: (){
+                    showDialog(context: context, builder: (_)=> SuccessPopup());
+                  },
+                  child: Text('View',
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleSmall
+                          ?.copyWith(
+                          fontFamily: FontConstants.fontFamily2,
+                          color: ColorManager.faintb,
+                          fontWeight: FontWeightManager.medium,
+                          fontSize: FontSize.s15_25),
+                      textAlign: TextAlign.center),
+                ),
+                Text('SAPCNF',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall
+                        ?.copyWith(
+                        fontFamily: FontConstants.fontFamily2,
+                        color: ColorManager.black,
+                        fontWeight: FontWeightManager.bold,
+                        fontSize: FontSize.s15_25),
+                    textAlign: TextAlign.center),
+                Text('100001',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall
+                        ?.copyWith(
+                        fontFamily: FontConstants.fontFamily2,
+                        color: ColorManager.black,
+                        fontWeight: FontWeightManager.bold,
+                        fontSize: FontSize.s15_25),
+                    textAlign: TextAlign.center),
+                Text('Welding (10)',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall
+                        ?.copyWith(
+                        fontFamily: FontConstants.fontFamily2,
+                        color: ColorManager.black,
+                        fontWeight: FontWeightManager.bold,
+                        fontSize: FontSize.s15_25),
+                    textAlign: TextAlign.center),
+                Text('8010000010',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall
+                        ?.copyWith(
+                        fontFamily: FontConstants.fontFamily2,
+                        color: ColorManager.black,
+                        fontWeight: FontWeightManager.bold,
+                        fontSize: FontSize.s15_25),
+                    textAlign: TextAlign.center),
+                Text('BOXER SWING ARM ',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall
+                        ?.copyWith(
+                        fontFamily: FontConstants.fontFamily2,
+                        color: ColorManager.black,
+                        fontWeight: FontWeightManager.bold,
+                        fontSize: FontSize.s15_25),
+                    textAlign: TextAlign.center),
+                Text('100 ',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall
+                        ?.copyWith(
+                        fontFamily: FontConstants.fontFamily2,
+                        color: ColorManager.black,
+                        fontWeight: FontWeightManager.bold,
+                        fontSize: FontSize.s15_25),
+                    textAlign: TextAlign.center),
+                Text('100 ',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall
+                        ?.copyWith(
+                        fontFamily: FontConstants.fontFamily2,
+                        color: ColorManager.black,
+                        fontWeight: FontWeightManager.bold,
+                        fontSize: FontSize.s15_25),
+                    textAlign: TextAlign.center),
+                Text('10 ',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall
+                        ?.copyWith(
+                        fontFamily: FontConstants.fontFamily2,
+                        color: ColorManager.red,
+                        fontWeight: FontWeightManager.bold,
+                        fontSize: FontSize.s15_25),
+                    textAlign: TextAlign.center),
+                Text('5 ',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall
+                        ?.copyWith(
+                        fontFamily: FontConstants.fontFamily2,
+                        color: ColorManager.black,
+                        fontWeight: FontWeightManager.bold,
+                        fontSize: FontSize.s15_25),
+                    textAlign: TextAlign.center),
+                Text('80 ',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall
+                        ?.copyWith(
+                        fontFamily: FontConstants.fontFamily2,
+                        color: ColorManager.black,
+                        fontWeight: FontWeightManager.bold,
+                        fontSize: FontSize.s15_25),
+                    textAlign: TextAlign.center),
+                Text('10 ',
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall
+                        ?.copyWith(
+                        fontFamily: FontConstants.fontFamily2,
+                        color: ColorManager.black,
+                        fontWeight: FontWeightManager.bold,
+                        fontSize: FontSize.s15_25),
+                    textAlign: TextAlign.center),
+              ],
+              onClick: () {
+                // var kkk = snapshot.data!.toList();
+                // if(dataAcending == false){
+                //   var kkk = data['delete'];
+                //   data = kkk.reversed.toList();
+                // }
+              },
+            );
+          }),);
   }
 }
