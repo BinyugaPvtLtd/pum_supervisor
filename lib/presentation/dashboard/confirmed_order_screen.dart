@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pum_supervisor/presentation/popups/edit_popup.dart';
 import 'package:pum_supervisor/resources/color_manager.dart';
 import 'package:pum_supervisor/resources/value_manager.dart';
 
@@ -92,12 +93,15 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
                 )
             ),
             SizedBox(width:MediaQuery.of(context).size.width / 2.3,),
-            // Container(
-            //     width: MediaQuery.of(context).size.width / 13,
-            //     height: MediaQuery.of(context).size.height / 20,
-            //     decoration: BoxDecoration(color: ColorManager.green,
-            //         borderRadius: BorderRadius.circular(10)),
-            //     child: TextButton(onPressed: (){}, child: const Text('Confirm',style: TextStyle(color: Colors.white),)))
+            Container(
+                width: MediaQuery.of(context).size.width / 13,
+                height: MediaQuery.of(context).size.height / 20,
+                decoration: BoxDecoration(color: ColorManager.green,
+                    borderRadius: BorderRadius.circular(10)),
+                child: TextButton(onPressed: (){
+                  showDialog(context: context, builder: (BuildContext context) => EditPopup());
+                  //Navigator.push(context, MaterialPageRoute(builder: (context)=> EditPopup()));
+                }, child: const Text('edit',style: TextStyle(color: Colors.white),)))
           ],
         ),
       )],
