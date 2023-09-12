@@ -164,6 +164,7 @@ class _EditPopupState extends State<EditPopup> {
                     ],
                   ),
                 ),
+                SizedBox(height: MediaQuery.of(context).size.height / 10,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -182,6 +183,7 @@ class _EditPopupState extends State<EditPopup> {
                         )),
                   ],
                 ),
+                SizedBox(height: MediaQuery.of(context).size.height / 30,),
                 // CustomRowWidget(
                 //   labelText: 'Label 1',
                 //   textController: TextEditingController(),
@@ -215,7 +217,29 @@ class _EditPopupState extends State<EditPopup> {
                   labelText3: 'Label 3',
                   textController2: TextEditingController(),
                 ),
-                SizedBox(height: 10,),
+                CustomRowWidget(
+                  labelText1: 'Label 1',
+                  textController1: TextEditingController(),
+                  labelText2: 'Label 2',
+                  dropdownValue: 'Option 1',
+                  onDropdownChanged: (String? newValue) {
+                    print('Dropdown value changed to: $newValue');
+                  },
+                  labelText3: 'Label 3',
+                  textController2: TextEditingController(),
+                ),
+                CustomRowWidget(
+                  labelText1: 'Label 1',
+                  textController1: TextEditingController(),
+                  labelText2: 'Label 2',
+                  dropdownValue: 'Option 1',
+                  onDropdownChanged: (String? newValue) {
+                    print('Dropdown value changed to: $newValue');
+                  },
+                  labelText3: 'Label 3',
+                  textController2: TextEditingController(),
+                ),
+                //SizedBox(height: 10,),
                 CustomRowWidget(
                   labelText1: 'Label 1',
                   textController1: TextEditingController(),

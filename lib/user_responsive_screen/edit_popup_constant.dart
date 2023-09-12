@@ -22,19 +22,19 @@ class CustomRowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey,
+      //color: Colors.grey,
       height: MediaQuery.of(context).size.height/ 15,
-     width: MediaQuery.of(context).size.width/ 1.8,
+     width: MediaQuery.of(context).size.width/ 1.7,
      // constraints: BoxConstraints(maxWidth: double.infinity), // Added maxWidth constraint
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.min, // Set to MainAxisSize.min
         children: [
           Text(labelText1),
-          //SizedBox(width: 10),
+          SizedBox(width: MediaQuery.of(context).size.width / 60,),
           Container(
             height: MediaQuery.of(context).size.height / 20,
-            width: MediaQuery.of(context).size.width / 25,
+            width: MediaQuery.of(context).size.width / 12,
             child: TextField(
               controller: textController1,
               decoration: InputDecoration(
@@ -53,9 +53,9 @@ class CustomRowWidget extends StatelessWidget {
                   )),
             ),
           ),
-          SizedBox(width: 10),
+          SizedBox(width: MediaQuery.of(context).size.width / 30,),
           Text(labelText2),
-          //SizedBox(width: 10),
+          SizedBox(width: MediaQuery.of(context).size.width / 60,),
           Container(
             height: MediaQuery.of(context).size.height/20,
             //width: MediaQuery.of(context).size.width / 100,
@@ -71,11 +71,12 @@ class CustomRowWidget extends StatelessWidget {
               }).toList(),
             ),
           ),
+          SizedBox(width: MediaQuery.of(context).size.width / 30,),
           Text(labelText3),
-          SizedBox(width: 10),
+          SizedBox(width: MediaQuery.of(context).size.width / 60,),
           Container(
             height: MediaQuery.of(context).size.height / 20,
-            width: MediaQuery.of(context).size.width / 25,
+            width: MediaQuery.of(context).size.width / 12,
             child: TextField(
               controller: textController2,
               decoration: InputDecoration(
