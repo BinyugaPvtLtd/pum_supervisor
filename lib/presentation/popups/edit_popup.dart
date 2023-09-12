@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pum_supervisor/presentation/widgets/sub_heading_widget.dart';
-import 'package:pum_supervisor/presentation/widgets/table_form_widget.dart';
 import 'package:pum_supervisor/presentation/widgets/title_second_widget.dart';
 import 'package:pum_supervisor/presentation/widgets/title_text_widget.dart';
+import 'package:pum_supervisor/user_responsive_screen/edit_popup_constant.dart';
 
 class EditPopup extends StatefulWidget {
   const EditPopup({Key? key}) : super(key: key);
@@ -70,7 +70,6 @@ class _EditPopupState extends State<EditPopup> {
                     ],
                   ),
                 ),
-
                 ///SubHeading
                 TableSubHeadingWidget(
                   heading1: 'Activities',
@@ -79,43 +78,43 @@ class _EditPopupState extends State<EditPopup> {
                 ),
 
                 ///tableformwidget
-                TableFormWidget(
-                  texttitle: 'Proccess',
-                  texttitle2: 'Downtime code',
-                  texttitle3: 'Downtime 1',
-                  items: items,
-                  selectedItem: selectedItem,
-                  onChanged: _onDropdownChanged,
-                ),
-                TableFormWidget(
-                    texttitle: 'Helper',
-                    texttitle2: 'Downtime code',
-                    texttitle3: 'Downtime 3',
-                    items: items,
-                    selectedItem: selectedItem,
-                    onChanged: _onDropdownChanged),
-                TableFormWidget(
-                    texttitle: 'Permanent',
-                    texttitle2: 'Downtime code',
-                    texttitle3: 'Downtime 4',
-                    items: items,
-                    selectedItem: selectedItem,
-                    onChanged: _onDropdownChanged),
-                TableFormWidget(
-                    texttitle: 'Piece Rate',
-                    texttitle2: 'Downtime code',
-                    texttitle3: 'Downtime 5',
-                    items: items,
-                    selectedItem: selectedItem,
-                    onChanged: _onDropdownChanged),
-
-                TableFormWidget(
-                    texttitle: 'Contract\n Welder',
-                    texttitle2: 'Downtime code',
-                    texttitle3: 'Downtime 2',
-                    items: items,
-                    selectedItem: selectedItem,
-                    onChanged: _onDropdownChanged),
+                // TableFormWidget(
+                //   texttitle: 'Proccess',
+                //   texttitle2: 'Downtime code',
+                //   texttitle3: 'Downtime 1',
+                //   items: items,
+                //   selectedItem: selectedItem,
+                //   onChanged: _onDropdownChanged,
+                // ),
+                // TableFormWidget(
+                //     texttitle: 'Helper',
+                //     texttitle2: 'Downtime code',
+                //     texttitle3: 'Downtime 3',
+                //     items: items,
+                //     selectedItem: selectedItem,
+                //     onChanged: _onDropdownChanged),
+                // TableFormWidget(
+                //     texttitle: 'Permanent',
+                //     texttitle2: 'Downtime code',
+                //     texttitle3: 'Downtime 4',
+                //     items: items,
+                //     selectedItem: selectedItem,
+                //     onChanged: _onDropdownChanged),
+                // TableFormWidget(
+                //     texttitle: 'Piece Rate',
+                //     texttitle2: 'Downtime code',
+                //     texttitle3: 'Downtime 5',
+                //     items: items,
+                //     selectedItem: selectedItem,
+                //     onChanged: _onDropdownChanged),
+                //
+                // TableFormWidget(
+                //     texttitle: 'Contract\n Welder',
+                //     texttitle2: 'Downtime code',
+                //     texttitle3: 'Downtime 2',
+                //     items: items,
+                //     selectedItem: selectedItem,
+                //     onChanged: _onDropdownChanged),
                 // TableFormWidget(
                 //     texttitle: 'Contract Welder',
                 //     texttitle2: 'Downtime code',
@@ -123,6 +122,94 @@ class _EditPopupState extends State<EditPopup> {
                 //     items: items,
                 //     selectedItem: selectedItem,
                 //     onChanged: _onDropdownChanged)
+                CustomRowWidget(
+                  labelText1: 'Proccess',
+                  textController1: TextEditingController(),
+                  labelText2: 'Downtime code',
+                  labelText3: 'Downtime 1',
+                  textController2: TextEditingController(),
+                  selectedItem: selectedItem,
+                  onChanged: _onDropdownChanged,
+                  items: items,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                CustomRowWidget(
+                  labelText1: 'Contract Welder',
+                  textController1: TextEditingController(),
+                  labelText2: 'Downtime code',
+                  labelText3: 'Downtime 2',
+                  textController2: TextEditingController(),
+                  selectedItem: selectedItem,
+                  onChanged: _onDropdownChanged,
+                  items: items,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                CustomRowWidget(
+                  labelText1: 'Helper',
+                  textController1: TextEditingController(),
+                  labelText2: 'Downtime code',
+                  textController2: TextEditingController(),
+                  selectedItem: selectedItem,
+                  onChanged: _onDropdownChanged,
+                  items: items,
+                  labelText3: 'Downtime 2',
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                CustomRowWidget(
+                  labelText1: 'Helper',
+                  textController1: TextEditingController(),
+                  labelText2: 'Downtime code',
+                  labelText3: 'Downtime 2',
+                  textController2: TextEditingController(),
+                  selectedItem: selectedItem,
+                  onChanged: _onDropdownChanged,
+                  items: items,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                CustomRowWidget(
+                  labelText1: 'Permanent',
+                  textController1: TextEditingController(),
+                  labelText2: 'Downtime code',
+                  labelText3: 'Downtime 2',
+                  textController2: TextEditingController(),
+                  selectedItem: selectedItem,
+                  onChanged: _onDropdownChanged,
+                  items: items,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                CustomRowWidget(
+                  labelText1: 'Piece rate',
+                  textController1: TextEditingController(),
+                  labelText2: 'Downtime code',
+                  labelText3: 'Downtime 2',
+                  textController2: TextEditingController(),
+                  selectedItem: selectedItem,
+                  onChanged: _onDropdownChanged,
+                  items: items,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                CustomRowWidget(
+                  labelText1: 'Argon Gas',
+                  textController1: TextEditingController(),
+                  labelText2: 'Downtime code',
+                  labelText3: 'Downtime 2',
+                  textController2: TextEditingController(),
+                  selectedItem: selectedItem,
+                  onChanged: _onDropdownChanged,
+                  items: items,
+                ),
               ],
             ),
           ),
