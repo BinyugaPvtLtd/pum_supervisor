@@ -30,37 +30,37 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Container(
-                width: MediaQuery.of(context).size.width / 8,
-                height: MediaQuery.of(context).size.height / 23,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: ColorManager.faintb, width: 2),
-                ),
-                child: TextField(
-                  textAlign: TextAlign.center,
-                  //textAlignVertical: TextAlignVertical.center,
-                  // controller: datecontroller,
-                  decoration: const InputDecoration(
-                    border: InputBorder.none,
-                    hintText: 'From',
-                  ),
-                  readOnly: true,
-                  onTap: () async {
-                    // DateTime? date = DateTime(1900);
-                    // FocusScope.of(context)
-                    //     .requestFocus(FocusNode());
-                    // date = await showDatePicker(
-                    //     context: context,
-                    //     initialDate: DateTime.now(),
-                    //     firstDate: DateTime(1980),
-                    //     lastDate: DateTime(2101));
-                    //
-                    // datecontroller.text =
-                    // "${date!.year}-${date.month}-${date.day}";
-                  },
-                ),
-              ),
+              // Container(
+              //   width: MediaQuery.of(context).size.width / 8,
+              //   height: MediaQuery.of(context).size.height / 23,
+              //   decoration: BoxDecoration(
+              //     borderRadius: BorderRadius.circular(10),
+              //     border: Border.all(color: ColorManager.faintb, width: 2),
+              //   ),
+              //   child: TextField(
+              //     textAlign: TextAlign.center,
+              //     //textAlignVertical: TextAlignVertical.center,
+              //     // controller: datecontroller,
+              //     decoration: const InputDecoration(
+              //       border: InputBorder.none,
+              //       hintText: 'From',
+              //     ),
+              //     readOnly: true,
+              //     onTap: () async {
+              //       // DateTime? date = DateTime(1900);
+              //       // FocusScope.of(context)
+              //       //     .requestFocus(FocusNode());
+              //       // date = await showDatePicker(
+              //       //     context: context,
+              //       //     initialDate: DateTime.now(),
+              //       //     firstDate: DateTime(1980),
+              //       //     lastDate: DateTime(2101));
+              //       //
+              //       // datecontroller.text =
+              //       // "${date!.year}-${date.month}-${date.day}";
+              //     },
+              //   ),
+              // ),
               /////////////////////////////////
               // Text(
               //   'Order No :',
