@@ -15,6 +15,17 @@ class UserAppfilledButton extends StatelessWidget {
   final TextStyle textStyle;
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      child: MaterialButton(
+        color: color,
+        onPressed: () {
+          onClick!();
+        },
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        padding: padding,
+        child: Text(text, style: textStyle),
+      ),
+    );
   }
 }
