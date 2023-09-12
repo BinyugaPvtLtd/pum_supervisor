@@ -162,7 +162,7 @@ class UserResponsiveScreen extends StatelessWidget {
                         ),
                       ),
                       Container(
-                         color: Colors.green,
+                         //color: Colors.green,
                         height: 60,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,

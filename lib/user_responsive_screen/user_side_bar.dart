@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pum_supervisor/presentation/dashboard/add_order_screen.dart';
 import 'package:pum_supervisor/presentation/dashboard/confirmed_order_screen.dart';
 import 'package:pum_supervisor/presentation/dashboard/dashboardscreen.dart';
+import 'package:pum_supervisor/presentation/login/login_supervisor.dart';
 import 'package:pum_supervisor/resources/color_manager.dart';
 import 'package:pum_supervisor/resources/font_manager.dart';
 import 'package:pum_supervisor/resources/string_manager.dart';
@@ -105,7 +106,6 @@ class _UserSideBarState extends State<UserSideBar> {
                       //});
                     },
                   ),
-
                   /// Confirmed Orders
                   OPSideBarElement(
                     //assetPath: "images/inventory_logo.png",
@@ -175,164 +175,149 @@ class _UserSideBarState extends State<UserSideBar> {
                     },
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height / 2.8),
-
+                  /// LogOut
                   OPSideBarElement(
                     value: AppUserScreen.logout,
                     groupValue: grpValue,
                     label: 'Logout',
-                    onClick: (AppUserScreen appScreen) async {
-                      // final SharedPreferences
-                      // sharedPreferences =
-                      // await SharedPreferences.getInstance();
-                      // sharedPreferences.setString(
-                      //     'adminEmail', '');
-                      // sharedPreferences.remove(
-                      //     'adminEmail');
-                      // _auth.signOut();
-                      // // setState(() {
-                      // if (grpValue != appScreen) {
-                      //   loginData.setBool('login', true);
-                      //   grpValue = appScreen;
-                      //
-                      //   Navigator.pushReplacement(
-                      //     context,
-                      //     PageRouteBuilder(
-                      //         transitionsBuilder: (_,
-                      //             Animation<double> animation,
-                      //             __,
-                      //             Widget child) {
-                      //           return FadeTransition(
-                      //               opacity: animation, child: child);
-                      //         },
-                      //         pageBuilder: (BuildContext context, _, __) =>
-                      //             LoginScreenWeb()),
-                      //   );
-                      // }
-                      // });
+                    onClick: (AppUserScreen appScreen)  {
+                      Navigator.pushReplacement(
+                        context,
+                        PageRouteBuilder(
+                            transitionsBuilder: (_,
+                                Animation<double> animation,
+                                __,
+                                Widget child) {
+                              return FadeTransition(
+                                  opacity: animation, child: child);
+                            },
+                            pageBuilder: (BuildContext context, _, __) =>
+                                LoginScreenSupervisor()),
+                      );
                     },
                   ),
                 ],
               ),
-              Container(
-                // color: Colors.purpleAccent,
-                height: MediaQuery.of(context).size.height - 180 > 460
-                    ? MediaQuery.of(context).size.height - 180 - 200
-                    : MediaQuery.of(context).size.height - 180 - 100,
-
-                ///sidebar container add text
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(
-                          left: 10, top: 20, bottom: 20, right: 20),
-                      child: Container(
-                        padding: EdgeInsets.only(
-                            left: 5, top: 5, bottom: 5, right: 5),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Expanded(flex: 1, child: Container()),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Expanded(flex: 2, child: Container()
-                              // Text("",
-                              //     style: Theme.of(context)
-                              //         .textTheme
-                              //         .subtitle1
-                              //         ?.copyWith(
-                              //             color: Colors.red,
-                              //             fontSize: MediaQuery.of(context)
-                              //                     .size
-                              //                     .width /
-                              //                 80,
-                              //             fontWeight: FontWeight.w700)
-                              // ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-
-                    ///dashboard
-                    expanded
-                        ? OPSideBarElement(
-                      // assetPath: "images/material_logo.png",
-                      // Icon(
-                      //   Icons.settings,
-                      //   color: Colors.black,
-                      // ),
-
-                      value: AppUserScreen.material,
-                      groupValue: grpValue,
-                      label: "Text",
-                      onClick: (AppUserScreen appScreen) {
-                        // setState(() {
-                        //   if (grpValue != appScreen) {
-                        //     grpValue = appScreen;
-                        //     Navigator.pushReplacement(
-                        //       context,
-                        //       PageRouteBuilder(
-                        //           transitionsBuilder: (_,
-                        //               Animation<double> animation,
-                        //               __,
-                        //               Widget child) {
-                        //             return FadeTransition(
-                        //                 opacity: animation, child: child);
-                        //           },
-                        //           pageBuilder:
-                        //               (BuildContext context, _, __) =>
-                        //                   const MaterialScreen()),
-                        //     );
-                        //   }
-                        // });
-                      },
-                    )
-                        : const SizedBox(
-                      height: 1,
-                    ),
-
-                    ///user management
-                    expanded
-                        ? OPSideBarElement(
-                      // assetPath: "images/storage_logo.png",
-                      // Icon(
-                      //   Icons.settings,
-                      //   color: Colors.black,
-                      // ),
-
-                      value: AppUserScreen.storage,
-                      groupValue: grpValue,
-                      label: "Storage",
-                      onClick: (AppUserScreen appScreen) {
-                        // setState(() {
-                        //   if (grpValue != appScreen) {
-                        //     grpValue = appScreen;
-                        //     Navigator.pushReplacement(
-                        //       context,
-                        //       PageRouteBuilder(
-                        //           transitionsBuilder: (_,
-                        //               Animation<double> animation,
-                        //               __,
-                        //               Widget child) {
-                        //             return FadeTransition(
-                        //                 opacity: animation, child: child);
-                        //           },
-                        //           pageBuilder:
-                        //               (BuildContext context, _, __) =>
-                        //                   StorageMasterScreen()),
-                        //     );
-                        //   }
-                        // });
-                      },
-                    )
-                        : const SizedBox(
-                      height: 1,
-                    ),
-                  ],
-                ),
-              ),
+              // Container(
+              //   // color: Colors.purpleAccent,
+              //   height: MediaQuery.of(context).size.height - 180 > 460
+              //       ? MediaQuery.of(context).size.height - 180 - 200
+              //       : MediaQuery.of(context).size.height - 180 - 100,
+              //
+              //   ///sidebar container add text
+              //   child: Column(
+              //     mainAxisAlignment: MainAxisAlignment.end,
+              //     children: [
+              //       Padding(
+              //         padding: EdgeInsets.only(
+              //             left: 10, top: 20, bottom: 20, right: 20),
+              //         child: Container(
+              //           padding: EdgeInsets.only(
+              //               left: 5, top: 5, bottom: 5, right: 5),
+              //           child: Row(
+              //             crossAxisAlignment: CrossAxisAlignment.center,
+              //             children: [
+              //               Expanded(flex: 1, child: Container()),
+              //               const SizedBox(
+              //                 width: 10,
+              //               ),
+              //               Expanded(flex: 2, child: Container()
+              //                 // Text("",
+              //                 //     style: Theme.of(context)
+              //                 //         .textTheme
+              //                 //         .subtitle1
+              //                 //         ?.copyWith(
+              //                 //             color: Colors.red,
+              //                 //             fontSize: MediaQuery.of(context)
+              //                 //                     .size
+              //                 //                     .width /
+              //                 //                 80,
+              //                 //             fontWeight: FontWeight.w700)
+              //                 // ),
+              //               ),
+              //             ],
+              //           ),
+              //         ),
+              //       ),
+              //
+              //       ///dashboard
+              //       expanded
+              //           ? OPSideBarElement(
+              //         // assetPath: "images/material_logo.png",
+              //         // Icon(
+              //         //   Icons.settings,
+              //         //   color: Colors.black,
+              //         // ),
+              //
+              //         value: AppUserScreen.material,
+              //         groupValue: grpValue,
+              //         label: "Text",
+              //         onClick: (AppUserScreen appScreen) {
+              //           // setState(() {
+              //           //   if (grpValue != appScreen) {
+              //           //     grpValue = appScreen;
+              //           //     Navigator.pushReplacement(
+              //           //       context,
+              //           //       PageRouteBuilder(
+              //           //           transitionsBuilder: (_,
+              //           //               Animation<double> animation,
+              //           //               __,
+              //           //               Widget child) {
+              //           //             return FadeTransition(
+              //           //                 opacity: animation, child: child);
+              //           //           },
+              //           //           pageBuilder:
+              //           //               (BuildContext context, _, __) =>
+              //           //                   const MaterialScreen()),
+              //           //     );
+              //           //   }
+              //           // });
+              //         },
+              //       )
+              //           : const SizedBox(
+              //         height: 1,
+              //       ),
+              //
+              //       ///user management
+              //       expanded
+              //           ? OPSideBarElement(
+              //         // assetPath: "images/storage_logo.png",
+              //         // Icon(
+              //         //   Icons.settings,
+              //         //   color: Colors.black,
+              //         // ),
+              //
+              //         value: AppUserScreen.storage,
+              //         groupValue: grpValue,
+              //         label: "Storage",
+              //         onClick: (AppUserScreen appScreen) {
+              //           // setState(() {
+              //           //   if (grpValue != appScreen) {
+              //           //     grpValue = appScreen;
+              //           //     Navigator.pushReplacement(
+              //           //       context,
+              //           //       PageRouteBuilder(
+              //           //           transitionsBuilder: (_,
+              //           //               Animation<double> animation,
+              //           //               __,
+              //           //               Widget child) {
+              //           //             return FadeTransition(
+              //           //                 opacity: animation, child: child);
+              //           //           },
+              //           //           pageBuilder:
+              //           //               (BuildContext context, _, __) =>
+              //           //                   StorageMasterScreen()),
+              //           //     );
+              //           //   }
+              //           // });
+              //         },
+              //       )
+              //           : const SizedBox(
+              //         height: 1,
+              //       ),
+              //     ],
+              //   ),
+              // ),
             ],
           ),
         ),
@@ -370,7 +355,7 @@ class OPSideBarElement extends StatelessWidget {
             border: groupValue == value
                 ? Border.all(color: ColorManager.white, width: 2)
                 : const Border.symmetric(),
-            //borderRadius: const BorderRadius.all(Radius.circular(15)),
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
           ),
           ///sidebar data
           child: Row(

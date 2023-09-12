@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pum_supervisor/constant/table_card_widget.dart';
 import 'package:pum_supervisor/constant/table_heading_widget.dart';
 import 'package:pum_supervisor/presentation/popups/edit_popup.dart';
+import 'package:pum_supervisor/presentation/popups/success_popup.dart';
 import 'package:pum_supervisor/resources/color_manager.dart';
 import 'package:pum_supervisor/resources/font_manager.dart';
 import 'package:pum_supervisor/resources/string_manager.dart';
@@ -171,14 +172,63 @@ class _DashboardScreenState extends State<DashboardScreen> {
               fontWeight: FontWeightManager.bold,
               fontSize: 15,
             )),
-        Text("Order No",
+        Text("Operation",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
               fontSize: 15,
             )),
-        Text("Order No",
+        Text("Material No.",
+            textAlign: TextAlign.center,
+            style: GoogleFonts.inter(
+              color: ColorManager.white,
+              fontWeight: FontWeightManager.bold,
+              fontSize: 15,
+            )),
+        Text("Description",
+            textAlign: TextAlign.center,
+            style: GoogleFonts.inter(
+              color: ColorManager.white,
+              fontWeight: FontWeightManager.bold,
+              fontSize: 15,
+            )),
+        Text("Order Qty",
+            textAlign: TextAlign.center,
+            style: GoogleFonts.inter(
+              color: ColorManager.white,
+              fontWeight: FontWeightManager.bold,
+              fontSize: 15,
+            )),
+        Text("Pending Qty",
+            textAlign: TextAlign.center,
+            style: GoogleFonts.inter(
+              color: ColorManager.white,
+              fontWeight: FontWeightManager.bold,
+              fontSize: 15,
+            )),
+        Text("Rejection",
+            textAlign: TextAlign.center,
+            style: GoogleFonts.inter(
+              color: ColorManager.white,
+              fontWeight: FontWeightManager.bold,
+              fontSize: 15,
+            )),
+        Text("Rework",
+            textAlign: TextAlign.center,
+            style: GoogleFonts.inter(
+              color: ColorManager.white,
+              fontWeight: FontWeightManager.bold,
+              fontSize: 15,
+            )),
+        Text("Confirmed Qty",
+            textAlign: TextAlign.center,
+            style: GoogleFonts.inter(
+              color: ColorManager.white,
+              fontWeight: FontWeightManager.bold,
+              fontSize: 15,
+            )),
+        Text("Balanced Qty",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
@@ -230,16 +280,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
                        fontWeight: FontWeightManager.medium,
                        fontSize: FontSize.s15_25),
                    textAlign: TextAlign.center),
-               Text('View',
-                   style: Theme.of(context)
-                       .textTheme
-                       .titleSmall
-                       ?.copyWith(
-                       fontFamily: FontConstants.fontFamily2,
-                       color: ColorManager.faintb,
-                       fontWeight: FontWeightManager.medium,
-                       fontSize: FontSize.s15_25),
-                   textAlign: TextAlign.center),
+               InkWell(
+                 onTap: (){
+                   showDialog(context: context, builder: (_)=>SuccessPopup());
+                 },
+                 child: Text('View',
+                     style: Theme.of(context)
+                         .textTheme
+                         .titleSmall
+                         ?.copyWith(
+                         fontFamily: FontConstants.fontFamily2,
+                         color: ColorManager.faintb,
+                         fontWeight: FontWeightManager.medium,
+                         fontSize: FontSize.s15_25),
+                     textAlign: TextAlign.center),
+               ),
                Text('SAPCNF',
                    style: Theme.of(context)
                        .textTheme
@@ -281,6 +336,66 @@ class _DashboardScreenState extends State<DashboardScreen> {
                        fontSize: FontSize.s15_25),
                    textAlign: TextAlign.center),
                Text('BOXER SWING ARM ',
+                   style: Theme.of(context)
+                       .textTheme
+                       .titleSmall
+                       ?.copyWith(
+                       fontFamily: FontConstants.fontFamily2,
+                       color: ColorManager.black,
+                       fontWeight: FontWeightManager.bold,
+                       fontSize: FontSize.s15_25),
+                   textAlign: TextAlign.center),
+               Text('100 ',
+                   style: Theme.of(context)
+                       .textTheme
+                       .titleSmall
+                       ?.copyWith(
+                       fontFamily: FontConstants.fontFamily2,
+                       color: ColorManager.black,
+                       fontWeight: FontWeightManager.bold,
+                       fontSize: FontSize.s15_25),
+                   textAlign: TextAlign.center),
+               Text('100 ',
+                   style: Theme.of(context)
+                       .textTheme
+                       .titleSmall
+                       ?.copyWith(
+                       fontFamily: FontConstants.fontFamily2,
+                       color: ColorManager.black,
+                       fontWeight: FontWeightManager.bold,
+                       fontSize: FontSize.s15_25),
+                   textAlign: TextAlign.center),
+               Text('10 ',
+                   style: Theme.of(context)
+                       .textTheme
+                       .titleSmall
+                       ?.copyWith(
+                       fontFamily: FontConstants.fontFamily2,
+                       color: ColorManager.red,
+                       fontWeight: FontWeightManager.bold,
+                       fontSize: FontSize.s15_25),
+                   textAlign: TextAlign.center),
+               Text('5 ',
+                   style: Theme.of(context)
+                       .textTheme
+                       .titleSmall
+                       ?.copyWith(
+                       fontFamily: FontConstants.fontFamily2,
+                       color: ColorManager.black,
+                       fontWeight: FontWeightManager.bold,
+                       fontSize: FontSize.s15_25),
+                   textAlign: TextAlign.center),
+               Text('80 ',
+                   style: Theme.of(context)
+                       .textTheme
+                       .titleSmall
+                       ?.copyWith(
+                       fontFamily: FontConstants.fontFamily2,
+                       color: ColorManager.black,
+                       fontWeight: FontWeightManager.bold,
+                       fontSize: FontSize.s15_25),
+                   textAlign: TextAlign.center),
+               Text('10 ',
                    style: Theme.of(context)
                        .textTheme
                        .titleSmall
