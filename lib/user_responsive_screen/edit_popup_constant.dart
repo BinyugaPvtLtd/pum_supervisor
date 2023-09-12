@@ -25,7 +25,7 @@ class CustomRowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      //color: Colors.grey,
+      // color: Colors.grey,
       height: MediaQuery.of(context).size.height / 10,
       width: MediaQuery.of(context).size.width / 1.8,
 
@@ -65,7 +65,6 @@ class CustomRowWidget extends StatelessWidget {
               )
             ],
           ),
-
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -92,7 +91,6 @@ class CustomRowWidget extends StatelessWidget {
               )
             ],
           ),
-
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -124,28 +122,7 @@ class CustomRowWidget extends StatelessWidget {
                 ],
               )
             ],
-          )
-          // Text(labelText3),
-          // SizedBox(width: 10),
-          // Container(
-          //   height: MediaQuery.of(context).size.height / 20,
-          //   width: MediaQuery.of(context).size.width / 25,
-          //   child: TextField(
-          //     controller: textController2,
-          //     decoration: InputDecoration(
-          //         labelText: '',
-          //         // Set border for enabled state (default)
-          //         enabledBorder: OutlineInputBorder(
-          //           borderSide: const BorderSide(width: 1, color: Colors.black),
-          //           // borderRadius: BorderRadius.circular(15),
-          //         ),
-          //         // Set border for focused state
-          //         focusedBorder: OutlineInputBorder(
-          //           borderSide: const BorderSide(width: 1, color: Colors.red),
-          //           //borderRadius: BorderRadius.circular(15),
-          //         )),
-          //   ),
-          // ),
+          ),
         ],
       ),
     );

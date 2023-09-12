@@ -166,7 +166,7 @@ class _EditPopupState extends State<EditPopup> {
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   //crossAxisAlignment: CrossAxisAlignment.center,
@@ -197,7 +197,7 @@ class _EditPopupState extends State<EditPopup> {
                     ),
                   ],
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 10),
 
                 CustomRowWidget(
                   labelText1: 'Label 1',
