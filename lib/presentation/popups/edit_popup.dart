@@ -166,7 +166,7 @@ class _EditPopupState extends State<EditPopup> {
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height / 8),
                   Padding(
-                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width/45),
+                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width/50),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       //crossAxisAlignment: CrossAxisAlignment.center,
@@ -180,7 +180,7 @@ class _EditPopupState extends State<EditPopup> {
                               fontWeight: FontWeightManager.bold,
                               fontSize: MediaQuery.of(context).size.width/90),
                         ),
-                        SizedBox(width: MediaQuery.of(context).size.width / 6.5),
+                        SizedBox(width: MediaQuery.of(context).size.width / 7),
                         Text(
                           "Downtime Code",
                           style: TextStyle(
@@ -211,7 +211,7 @@ class _EditPopupState extends State<EditPopup> {
                     onDropdownChanged: (String? newValue) {
                       print('Dropdown value changed to: $newValue');
                     },
-                    labelText3: 'Label 3',
+                    labelText3: 'Downtime  1',
                     textController2: TextEditingController(),
                   ),
                   CustomRowWidget(
@@ -222,7 +222,7 @@ class _EditPopupState extends State<EditPopup> {
                     onDropdownChanged: (String? newValue) {
                       print('Dropdown value changed to: $newValue');
                     },
-                    labelText3: 'Label 3',
+                    labelText3: 'Downtime  2',
                     textController2: TextEditingController(),
                   ),
 
@@ -234,7 +234,7 @@ class _EditPopupState extends State<EditPopup> {
                     onDropdownChanged: (String? newValue) {
                       print('Dropdown value changed to: $newValue');
                     },
-                    labelText3: 'Label 3',
+                    labelText3: 'Downtime  3',
                     textController2: TextEditingController(),
                   ),
                   CustomRowWidget(
@@ -245,7 +245,7 @@ class _EditPopupState extends State<EditPopup> {
                     onDropdownChanged: (String? newValue) {
                       print('Dropdown value changed to: $newValue');
                     },
-                    labelText3: 'Label 3',
+                    labelText3: 'Downtime  4',
                     textController2: TextEditingController(),
                   ),
                   CustomRowWidget(
@@ -256,15 +256,41 @@ class _EditPopupState extends State<EditPopup> {
                     onDropdownChanged: (String? newValue) {
                       print('Dropdown value changed to: $newValue');
                     },
-                    labelText3: 'Label 3',
+                    labelText3: 'Downtime  5',
                     textController2: TextEditingController(),
                   ),
-                  CustomRowWidget(
-                    labelText1: 'Argon Gas',
-                    textController1: TextEditingController(), labelText2: '',
-                    onDropdownChanged: (String? value) {  },
-                    labelText3: '',
-                    textController2:TextEditingController(),
+
+                  Padding(
+                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width/50),
+                    child: Row(
+                      children: [
+                        Text('Argon Gas',style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.width/100,
+                            color: ColorManager.grey),),
+                        SizedBox(width: MediaQuery.of(context).size.width / 50),
+                        Container(
+                          height: MediaQuery.of(context).size.height / 20,
+                          width: MediaQuery.of(context).size.width / 10,
+                          child: TextField(
+                            controller: TextEditingController(),
+                            decoration: InputDecoration(
+                                labelText: '',
+                                // Set border for enabled state (default)
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide:
+                                  const BorderSide(width: 1, color: Colors.black),
+                                  //borderRadius: BorderRadius.circular(15),
+                                ),
+                                // Set border for focused state
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                  const BorderSide(width: 1, color: Colors.red),
+                                  //borderRadius: BorderRadius.circular(15),
+                                )),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(height: 10),
                   Row(

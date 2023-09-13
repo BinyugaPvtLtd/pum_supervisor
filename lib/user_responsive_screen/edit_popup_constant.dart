@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../resources/color_manager.dart';
@@ -78,16 +80,27 @@ class CustomRowWidget extends StatelessWidget {
                       color: ColorManager.grey),),
                   SizedBox(width: MediaQuery.of(context).size.width / 50),
                   Container(
-                    height: MediaQuery.of(context).size.height / 20,
-                    width: MediaQuery.of(context).size.width / 10,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: ColorManager.black, width: 1),
+                        //borderRadius: BorderRadius.circular(10)
+                    ),
+                    height: MediaQuery.of(context).size.height / 25,
+                    width: MediaQuery.of(context).size.width / 11,
                     child: DropdownButton<String>(
                       value: dropdownValue,
+                      underline: SizedBox(),
+                      isExpanded: true,
+                      icon: Icon(Icons.keyboard_arrow_down_outlined,),
+                      //iconSize: 15,
                       onChanged: onDropdownChanged,
                       items: <String>['Option 1', 'Option 2', 'Option 3']
                           .map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
-                          child: Text(value),
+                          child: Text(value,style: TextStyle(fontFamily: FontConstants.fontFamily2,
+                              fontWeight: FontWeightManager.bold,
+                              color: ColorManager.black,
+                              fontSize: MediaQuery.of(context).size.width / 110),),
                         );
                       }).toList(),
                     ),
