@@ -28,7 +28,6 @@ class UserResponsiveScreen extends StatelessWidget {
     if (MediaQuery.of(context).size.width > 870) {
       return Scaffold(
         backgroundColor: Colors.white,
-
         body: Container(
           // decoration: BoxDecoration(
           //   color: ColorManager.sidebarcolor,
@@ -93,11 +92,12 @@ class UserResponsiveScreen extends StatelessWidget {
                         Container(
                           //color: Colors.blue,
                           height: 220,
+                          width: MediaQuery.of(context).size.width,
                           child: ScrollConfiguration(
                             behavior: ScrollConfiguration.of(context)
-                                .copyWith(scrollbars: false),
+                                .copyWith(scrollbars: true),
                             child: ListView(
-                              physics: NeverScrollableScrollPhysics(),
+                             physics: NeverScrollableScrollPhysics(),
                               children: [
                                 Container(
                                   //color: Colors.redAccent,
@@ -135,58 +135,60 @@ class UserResponsiveScreen extends StatelessWidget {
           ),
         ),
       );
-    } else if (MediaQuery.of(context).size.width > 600) {
-      return Scaffold(
-        body: Container(
-          height: MediaQuery.of(context).size.height,
-          // color: Colors.orangeAccent,
-          child: Stack(
-            children: [
-              Container(
-                // color: Colors.brown,
-
-                height: 220,
-                child: ScrollConfiguration(
-                  behavior: ScrollConfiguration.of(context)
-                      .copyWith(scrollbars: false),
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    physics: NeverScrollableScrollPhysics(),
-                    children: [
-                      Container(
-                        // color: Colors.cyan,
-                        height: 120,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: appBarChildren,
-                        ),
-                      ),
-                      Container(
-                         //color: Colors.green,
-                        height: 60,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: appBarSpaceChildren,
-                        ),
-                      ),
-                      Container(
-                        // color: Colors.pinkAccent,
-                        child: tableHeading,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Container(
-                // color: Colors.redAccent,
-                margin: EdgeInsets.only(top: 225),
-                child: table,
-              ),
-            ],
-          ),
-        ),
-      );
-    } else if (MediaQuery.of(context).size.width > 450) {
+    }
+    // else if (MediaQuery.of(context).size.width > 700) {
+    //   return Scaffold(
+    //     body: Container(
+    //       height: MediaQuery.of(context).size.height,
+    //       // color: Colors.orangeAccent,
+    //       child: Stack(
+    //         children: [
+    //           Container(
+    //             // color: Colors.brown,
+    //
+    //             height: 220,
+    //             child: ScrollConfiguration(
+    //               behavior: ScrollConfiguration.of(context)
+    //                   .copyWith(scrollbars: false),
+    //               child: ListView(
+    //                 scrollDirection: Axis.horizontal,
+    //                 physics: NeverScrollableScrollPhysics(),
+    //                 children: [
+    //                   Container(
+    //                     // color: Colors.cyan,
+    //                     height: 120,
+    //                     child: Row(
+    //                       mainAxisAlignment: MainAxisAlignment.end,
+    //                       children: appBarChildren,
+    //                     ),
+    //                   ),
+    //                   Container(
+    //                      //color: Colors.green,
+    //                     height: 60,
+    //                     child: Row(
+    //                       mainAxisAlignment: MainAxisAlignment.start,
+    //                       children: appBarSpaceChildren,
+    //                     ),
+    //                   ),
+    //                   Container(
+    //                     // color: Colors.pinkAccent,
+    //                     child: tableHeading,
+    //                   ),
+    //                 ],
+    //               ),
+    //             ),
+    //           ),
+    //           Container(
+    //             // color: Colors.redAccent,
+    //             margin: EdgeInsets.only(top: 225),
+    //             child: table,
+    //           ),
+    //         ],
+    //       ),
+    //     ),
+    //   );
+    // }
+    else if (MediaQuery.of(context).size.width > 450) {
       return Scaffold(
         body: Container(
           //color: Colors.lightGreen,

@@ -18,6 +18,7 @@ class CustomRowWidget extends StatelessWidget {
     required this.labelText2,
     this.dropdownValue,
     required this.onDropdownChanged,
+
     required this.labelText3,
     required this.textController2,
   });
@@ -26,7 +27,7 @@ class CustomRowWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // color: Colors.grey,
-      height: MediaQuery.of(context).size.height / 10,
+      height: MediaQuery.of(context).size.height / 15,
       width: MediaQuery.of(context).size.width / 1.8,
 
       // constraints: BoxConstraints(maxWidth: double.infinity), // Added maxWidth constraint
@@ -39,7 +40,7 @@ class CustomRowWidget extends StatelessWidget {
               Row(
                 children: [
                   Text(labelText1),
-                  SizedBox(width: 10),
+                  SizedBox(width: MediaQuery.of(context).size.width / 20),
                   Container(
                     height: MediaQuery.of(context).size.height / 20,
                     width: MediaQuery.of(context).size.width / 10,

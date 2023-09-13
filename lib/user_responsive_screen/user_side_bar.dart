@@ -150,7 +150,7 @@ class _UserSideBarState extends State<UserSideBar> {
                     // color: Colors.white,
                     value: AppUserScreen.addOrder,
                     groupValue: grpValue,
-                    label: AppString.addorder,
+                    label: AppString.addorderlabel,
                     onClick: (AppUserScreen appScreen) {
                       //click = !click;
 
