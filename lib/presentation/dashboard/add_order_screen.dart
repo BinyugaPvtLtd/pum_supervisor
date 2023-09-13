@@ -6,6 +6,7 @@ import 'package:pum_supervisor/resources/value_manager.dart';
 import '../../constant/table_heading_widget.dart';
 import '../../resources/font_manager.dart';
 import '../../resources/string_manager.dart';
+import '../../user_responsive_screen/user_appfilled_button.dart';
 import '../../user_responsive_screen/user_enum.dart';
 import '../../user_responsive_screen/user_responsive_screen.dart';
 
@@ -24,7 +25,16 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
   Widget build(BuildContext context) {
     return UserResponsiveScreen(
       
-      appBarChildren: [],
+      appBarChildren: [
+        UserAppfilledButton(text: 'Confirm',
+          padding:  EdgeInsets.symmetric(
+            vertical: MediaQuery.of(context).size.height/38,
+            horizontal: MediaQuery.of(context).size.width/40,),
+          color: ColorManager.green,
+
+          textStyle: TextStyle(fontWeight: FontWeight.w600,color: Colors.white),
+        )
+      ],
       appBarSpaceChildren: [
         Padding(
           padding: EdgeInsets.only(left: AppPadding.p8),
