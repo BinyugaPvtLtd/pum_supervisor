@@ -245,15 +245,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
           itemBuilder: (BuildContext context, index){
            return TableCardWidget(
              fields: [
-               Checkbox(value: checkValue1,
+               Checkbox(value: checkValue,
                    activeColor: Colors.blueAccent,
                    side: BorderSide(color: ColorManager.faintb,
                        width: 2),
                    onChanged: (val){
                      setState(() {
-                       checkValue1 = val!;
+                       checkValue = val!;
                      });
-
                    }),
                InkWell(
                  onTap: (){

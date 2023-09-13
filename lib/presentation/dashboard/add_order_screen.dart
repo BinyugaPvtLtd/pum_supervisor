@@ -30,100 +30,48 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              // Container(
-              //   width: MediaQuery.of(context).size.width / 8,
-              //   height: MediaQuery.of(context).size.height / 23,
-              //   decoration: BoxDecoration(
-              //     borderRadius: BorderRadius.circular(10),
-              //     border: Border.all(color: ColorManager.faintb, width: 2),
-              //   ),
-              //   child: TextField(
-              //     textAlign: TextAlign.center,
-              //     //textAlignVertical: TextAlignVertical.center,
-              //     // controller: datecontroller,
-              //     decoration: const InputDecoration(
-              //       border: InputBorder.none,
-              //       hintText: 'From',
-              //     ),
-              //     readOnly: true,
-              //     onTap: () async {
-              //       // DateTime? date = DateTime(1900);
-              //       // FocusScope.of(context)
-              //       //     .requestFocus(FocusNode());
-              //       // date = await showDatePicker(
-              //       //     context: context,
-              //       //     initialDate: DateTime.now(),
-              //       //     firstDate: DateTime(1980),
-              //       //     lastDate: DateTime(2101));
-              //       //
-              //       // datecontroller.text =
-              //       // "${date!.year}-${date.month}-${date.day}";
-              //     },
-              //   ),
-              // ),
-              /////////////////////////////////
-              // Text(
-              //   'Order No :',
-              //   style: TextStyle(
-              //       fontFamily: FontConstants.fontFamily2,
-              //       color: ColorManager.black,
-              //       //fontWeight: FontWeightManager.bold,
-              //       fontSize: FontSize.s16),
-              // ),
-
-              SizedBox(
-                width: MediaQuery.of(context).size.width / 50,
-              ),
-
               Container(
-                decoration: BoxDecoration(
-                    border: Border.all(color: ColorManager.faintb, width: 2),
-                    borderRadius: BorderRadius.circular(10)),
-                //padding: EdgeInsets.all(3),
-                width: MediaQuery.of(context).size.width / 8,
-                height: MediaQuery.of(context).size.height / 23,
-                child: Row(
-                  children: [
-                    DropdownButton(
-                      alignment: Alignment.center,
-                      hint: Text(
-                        ListItems[0],
-                        style: TextStyle(
-                            fontSize: MediaQuery.of(context).size.width / 80),
-                      ),
-                      value: valueChoose,
-                      underline: SizedBox(),
-                      isExpanded: true,
-                      icon: Icon(Icons.keyboard_arrow_down_outlined),
-                      onChanged: (val) {
-                        setState(() {
-                          valueChoose = val as String?;
-                        });
-                      },
-                      items: ListItems.map((ValueItem) {
-                        return DropdownMenuItem(
-                          value: ValueItem,
-                          child: Text(
-                            ValueItem,
-                            style: TextStyle(
-                                fontSize:
-                                    MediaQuery.of(context).size.width / 80),
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ],
-                ),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: ColorManager.faintb, width: 2),
+                      borderRadius: BorderRadius.circular(10)
+                  ),
+                  //padding: EdgeInsets.all(3),
+                  width: MediaQuery.of(context).size.width / 5,
+                  height: MediaQuery.of(context).size.height / 23,
+                  child: DropdownButton(
+                    alignment: Alignment.topLeft,
+                    hint: Text("1234456678899",style: TextStyle(fontFamily: FontConstants.fontFamily2,
+                        fontWeight: FontWeightManager.bold,
+                        color: ColorManager.faintb,
+                        fontSize: MediaQuery.of(context).size.width / 80),),
+                    value: valueChoose,
+                    underline: SizedBox(),
+                    isExpanded: true,
+                    icon: Icon(Icons.keyboard_arrow_down_outlined),
+                    onChanged: (val){
+                      setState(() {
+                        valueChoose = val as String?;
+                      });
+                    },
+                    items: ListItems.map((ValueItem) {
+                      return DropdownMenuItem(value: ValueItem,child: Text(ValueItem,style: TextStyle(
+                          fontFamily: FontConstants.fontFamily2,
+                          fontWeight: FontWeightManager.bold,
+                          color: ColorManager.faintb,
+                          fontSize: MediaQuery.of(context).size.width / 80
+                      ),),);
+                    }).toList(),
+                  )
               ),
             ],
           ),
         )
       ],
       appScreen: AppUserScreen.addOrder,
-      tableHeadingIsThere: true,
+      tableHeadingIsThere: false,
       heading: AppString.addorder,
       onBack: () {},
-      tableHeading: Container(),
+      tableHeading: SizedBox(),
       table: Expanded(
           child: ListView.builder(
               itemCount: 7,

@@ -41,7 +41,8 @@ class AppString {
   /// Dashbord  Screen
   static const String pendingorder = "Pending Orders";
   static const String confirmorder = "Confirmed Orders";
-  static const String addorder = "Add Order";
+  static const String addorder = " Order No";
+  static const String addorderlabel = " Add Order";
   static const String Dashbordhead = "Dashboard";
   static const String userMangment = "User Management";
   static const String forgotpass = "Forgot Password?";
