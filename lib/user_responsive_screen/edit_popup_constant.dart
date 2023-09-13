@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../resources/color_manager.dart';
+import '../resources/font_manager.dart';
+
 class CustomRowWidget extends StatelessWidget {
   final String labelText1;
   final TextEditingController textController1;
@@ -22,78 +25,103 @@ class CustomRowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      //color: Colors.grey,
-      height: MediaQuery.of(context).size.height/ 15,
-     width: MediaQuery.of(context).size.width/ 1.7,
-     // constraints: BoxConstraints(maxWidth: double.infinity), // Added maxWidth constraint
+      // color: Colors.grey,
+      height: MediaQuery.of(context).size.height / 10,
+      width: MediaQuery.of(context).size.width / 1.8,
+
+      // constraints: BoxConstraints(maxWidth: double.infinity), // Added maxWidth constraint
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        mainAxisSize: MainAxisSize.min, // Set to MainAxisSize.min
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //mainAxisSize: MainAxisSize.min, // Set to MainAxisSize.min
         children: [
-          Text(labelText1),
-          SizedBox(width: MediaQuery.of(context).size.width / 60,),
-          Container(
-            height: MediaQuery.of(context).size.height / 20,
-            width: MediaQuery.of(context).size.width / 12,
-            child: TextField(
-              controller: textController1,
-              decoration: InputDecoration(
-                  labelText: '',
-                  // Set border for enabled state (default)
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                        width: 1, color: Colors.black),
-                    //borderRadius: BorderRadius.circular(15),
+          Column(
+            children: [
+              Row(
+                children: [
+                  Text(labelText1),
+                  SizedBox(width: 10),
+                  Container(
+                    height: MediaQuery.of(context).size.height / 20,
+                    width: MediaQuery.of(context).size.width / 10,
+                    child: TextField(
+                      controller: textController1,
+                      decoration: InputDecoration(
+                          labelText: '',
+                          // Set border for enabled state (default)
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(width: 1, color: Colors.black),
+                            //borderRadius: BorderRadius.circular(15),
+                          ),
+                          // Set border for focused state
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(width: 1, color: Colors.red),
+                            //borderRadius: BorderRadius.circular(15),
+                          )),
+                    ),
                   ),
-                  // Set border for focused state
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                        width: 1, color: Colors.red),
-                    //borderRadius: BorderRadius.circular(15),
-                  )),
-            ),
+                ],
+              )
+            ],
           ),
-          SizedBox(width: MediaQuery.of(context).size.width / 30,),
-          Text(labelText2),
-          SizedBox(width: MediaQuery.of(context).size.width / 60,),
-          Container(
-            height: MediaQuery.of(context).size.height/20,
-            //width: MediaQuery.of(context).size.width / 100,
-            child: DropdownButton<String>(
-              value: dropdownValue,
-              onChanged: onDropdownChanged,
-              items: <String>['Option 1', 'Option 2', 'Option 3']
-                  .map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-            ),
-          ),
-          SizedBox(width: MediaQuery.of(context).size.width / 30,),
-          Text(labelText3),
-          SizedBox(width: MediaQuery.of(context).size.width / 60,),
-          Container(
-            height: MediaQuery.of(context).size.height / 20,
-            width: MediaQuery.of(context).size.width / 12,
-            child: TextField(
-              controller: textController2,
-              decoration: InputDecoration(
-                  labelText: '',
-                  // Set border for enabled state (default)
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                        width: 1, color: Colors.black),
-                   // borderRadius: BorderRadius.circular(15),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Text(labelText2),
+                  SizedBox(width: 10),
+                  Container(
+                    height: MediaQuery.of(context).size.height / 20,
+                    width: MediaQuery.of(context).size.width / 10,
+                    child: DropdownButton<String>(
+                      value: dropdownValue,
+                      onChanged: onDropdownChanged,
+                      items: <String>['Option 1', 'Option 2', 'Option 3']
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    ),
                   ),
-                  // Set border for focused state
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                        width: 1, color: Colors.red),
-                    //borderRadius: BorderRadius.circular(15),
-                  )),
-            ),
+                ],
+              )
+            ],
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Text(labelText3),
+                  SizedBox(width: 10),
+                  Container(
+                    height: MediaQuery.of(context).size.height / 20,
+                    width: MediaQuery.of(context).size.width / 10,
+                    child: TextField(
+                      controller: textController2,
+                      decoration: InputDecoration(
+                          labelText: '',
+                          // Set border for enabled state (default)
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(width: 1, color: Colors.black),
+                            // borderRadius: BorderRadius.circular(15),
+                          ),
+                          // Set border for focused state
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(width: 1, color: Colors.red),
+                            //borderRadius: BorderRadius.circular(15),
+                          )),
+                    ),
+                  ),
+                ],
+              )
+            ],
           ),
         ],
       ),
