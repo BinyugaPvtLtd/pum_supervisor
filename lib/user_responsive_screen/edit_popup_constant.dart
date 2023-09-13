@@ -26,9 +26,9 @@ class CustomRowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: Colors.grey,
+      //color: Colors.grey,
       height: MediaQuery.of(context).size.height / 15,
-      width: MediaQuery.of(context).size.width / 1.8,
+      width: MediaQuery.of(context).size.width / 1.7,
 
       // constraints: BoxConstraints(maxWidth: double.infinity), // Added maxWidth constraint
       child: Row(
@@ -40,7 +40,7 @@ class CustomRowWidget extends StatelessWidget {
               Row(
                 children: [
                   Text(labelText1),
-                  SizedBox(width: MediaQuery.of(context).size.width / 20),
+                  SizedBox(width: MediaQuery.of(context).size.width / 50),
                   Container(
                     height: MediaQuery.of(context).size.height / 20,
                     width: MediaQuery.of(context).size.width / 10,
@@ -72,7 +72,7 @@ class CustomRowWidget extends StatelessWidget {
               Row(
                 children: [
                   Text(labelText2),
-                  SizedBox(width: 10),
+                  SizedBox(width: MediaQuery.of(context).size.width / 50),
                   Container(
                     height: MediaQuery.of(context).size.height / 20,
                     width: MediaQuery.of(context).size.width / 10,
@@ -98,7 +98,7 @@ class CustomRowWidget extends StatelessWidget {
               Row(
                 children: [
                   Text(labelText3),
-                  SizedBox(width: 10),
+                  SizedBox(width: MediaQuery.of(context).size.width / 50),
                   Container(
                     height: MediaQuery.of(context).size.height / 20,
                     width: MediaQuery.of(context).size.width / 10,

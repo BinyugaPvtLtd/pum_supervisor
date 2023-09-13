@@ -167,7 +167,7 @@ class _EditPopupState extends State<EditPopup> {
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height / 6),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     //crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
@@ -200,9 +200,9 @@ class _EditPopupState extends State<EditPopup> {
                   SizedBox(height: 10),
 
                   CustomRowWidget(
-                    labelText1: 'Label 1',
+                    labelText1: 'Process     ',
                     textController1: TextEditingController(),
-                    labelText2: 'Label 2',
+                    labelText2: 'Downtime code 1',
                     dropdownValue: 'Option 1',
                     onDropdownChanged: (String? newValue) {
                       print('Dropdown value changed to: $newValue');
@@ -211,9 +211,9 @@ class _EditPopupState extends State<EditPopup> {
                     textController2: TextEditingController(),
                   ),
                   CustomRowWidget(
-                    labelText1: 'Label 1',
+                    labelText1: 'Contract    \nWelder  ',
                     textController1: TextEditingController(),
-                    labelText2: 'Label 2',
+                    labelText2: 'Downtime code 2',
                     dropdownValue: 'Option 1',
                     onDropdownChanged: (String? newValue) {
                       print('Dropdown value changed to: $newValue');
@@ -223,9 +223,9 @@ class _EditPopupState extends State<EditPopup> {
                   ),
 
                   CustomRowWidget(
-                    labelText1: 'Label 1',
+                    labelText1: 'Helper        ',
                     textController1: TextEditingController(),
-                    labelText2: 'Label 2',
+                    labelText2: 'Downtime code 3',
                     dropdownValue: 'Option 1',
                     onDropdownChanged: (String? newValue) {
                       print('Dropdown value changed to: $newValue');
@@ -234,9 +234,9 @@ class _EditPopupState extends State<EditPopup> {
                     textController2: TextEditingController(),
                   ),
                   CustomRowWidget(
-                    labelText1: 'Label 1',
+                    labelText1: 'Permanent',
                     textController1: TextEditingController(),
-                    labelText2: 'Label 2',
+                    labelText2: 'Downtime code 4',
                     dropdownValue: 'Option 1',
                     onDropdownChanged: (String? newValue) {
                       print('Dropdown value changed to: $newValue');
@@ -245,9 +245,9 @@ class _EditPopupState extends State<EditPopup> {
                     textController2: TextEditingController(),
                   ),
                   CustomRowWidget(
-                    labelText1: 'Label 1',
+                    labelText1: 'Piece Rate',
                     textController1: TextEditingController(),
-                    labelText2: 'Label 2',
+                    labelText2: 'Downtime code 5',
                     dropdownValue: 'Option 1',
                     onDropdownChanged: (String? newValue) {
                       print('Dropdown value changed to: $newValue');
@@ -256,7 +256,7 @@ class _EditPopupState extends State<EditPopup> {
                     textController2: TextEditingController(),
                   ),
                   CustomRowWidget(
-                    labelText1: 'Label 1',
+                    labelText1: 'Argon Gas',
                     textController1: TextEditingController(), labelText2: '',
                     onDropdownChanged: (String? value) {  },
                     labelText3: '',
