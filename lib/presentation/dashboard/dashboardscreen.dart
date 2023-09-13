@@ -39,29 +39,33 @@ class _DashboardScreenState extends State<DashboardScreen> {
             Container(
               width: MediaQuery.of(context).size.width / 8,
               height: MediaQuery.of(context).size.height / 23,
+              alignment: Alignment.center,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
                     color: ColorManager.faintb,
                     width: 2),
               ),
-              child: TextField(
+              padding: EdgeInsets.all(2),
+              child:
+              TextField(
                 textAlign: TextAlign.center,
-                textAlignVertical: TextAlignVertical.center,
+                // textAlignVertical: TextAlignVertical.center,
                 controller: datecontroller,
                 decoration:  InputDecoration(
+                  //contentPadding: EdgeInsets.only(top: 10,bottom: 10),
                   border: InputBorder.none,
                   hintText: 'From',
                   hintStyle: TextStyle(fontFamily: FontConstants.fontFamily2,
+                    fontSize: MediaQuery.of(context).size.width / 80,
                     fontWeight: FontWeightManager.bold,
                     color: ColorManager.black,),
-                  suffixIcon: Icon(Icons.keyboard_arrow_down_outlined),
+                  suffixIcon:  Icon(Icons.keyboard_arrow_down_outlined),
                 ),
                 style: TextStyle(fontFamily: FontConstants.fontFamily2,
                     fontWeight: FontWeightManager.bold,
                     fontSize: MediaQuery.of(context).size.width / 80,
                     color: ColorManager.black),
-
                 readOnly: true,
                 onTap: () async {
                   DateTime? date = DateTime(1900);

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pum_supervisor/resources/color_manager.dart';
 import 'package:pum_supervisor/resources/value_manager.dart';
+import 'package:pum_supervisor/user_responsive_screen/user_appfilled_button.dart';
 
 import '../../constant/table_heading_widget.dart';
 import '../../resources/font_manager.dart';
@@ -23,7 +24,14 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
   @override
   Widget build(BuildContext context) {
     return UserResponsiveScreen(
-      appBarChildren: [],
+      appBarChildren: [UserAppfilledButton(text: 'Confirm',
+        padding: const EdgeInsets.symmetric(
+          vertical: 18,
+          horizontal: 30,
+        ),
+        color: ColorManager.green,
+        textStyle: TextStyle(color: Colors.white),
+      )],
       appBarSpaceChildren: [
         Padding(
           padding: EdgeInsets.only(left: AppPadding.p8),
