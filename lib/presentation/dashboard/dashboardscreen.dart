@@ -117,12 +117,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             SizedBox(width:MediaQuery.of(context).size.width / 2.3,),
             UserAppfilledButton(text: 'Confirm',
-              padding: const EdgeInsets.symmetric(
-                vertical: 18,
-                horizontal: 30,
-              ),
+              padding:  EdgeInsets.symmetric(
+                vertical: MediaQuery.of(context).size.height/38,
+                horizontal: MediaQuery.of(context).size.width/40,),
               color: ColorManager.green,
-              textStyle: TextStyle(color: Colors.white),
+
+              textStyle: TextStyle(fontWeight: FontWeight.w600,color: Colors.white),
             )
           ],
         ),
@@ -413,6 +413,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                // }
              },
            );
-      }),);
+      }),
+    );
   }
 }

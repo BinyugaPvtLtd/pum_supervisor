@@ -29,11 +29,6 @@ class UserResponsiveScreen extends StatelessWidget {
       return Scaffold(
         backgroundColor: Colors.white,
         body: Container(
-          // decoration: BoxDecoration(
-          //   color: ColorManager.sidebarcolor,
-          //   // border: Border.all(width: 5, color: Colors.red),
-          //   borderRadius: BorderRadius.only(topLeft: Radius.circular(50)),
-          // ),
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: Row(
@@ -44,45 +39,42 @@ class UserResponsiveScreen extends StatelessWidget {
                     //color: Colors.green,
                     color: Color(0xffF6F6F6),
                     height: MediaQuery.of(context).size.height,
-                    child: ScrollConfiguration(
-                      behavior: ScrollConfiguration.of(context)
-                          .copyWith(scrollbars: false),
-                      child: ListView(
-                        physics: NeverScrollableScrollPhysics(),
-                        children: [
-                          MediaQuery.of(context).size.width > 780
-                              ? Container(
+                    child: ListView(
+                      physics: NeverScrollableScrollPhysics(),
+                      children: [
+                        MediaQuery.of(context).size.width > 780
+                            ? Container(
+                          color: ColorManager.white,
+                          child: Padding(
+                            padding: EdgeInsets.all(
+                                MediaQuery.of(context).size.height /
+                                    80),
+                            child: Image.asset(
+                              "images/ummasons_logo.png",
+                              // width: double.minPositive,
+                              // width: MediaQuery.of(context).size.width / 2,
+                            ),
+                          ),
+                        )
+                            : const SizedBox(height: 40,),
+                        Container(
+                          height:MediaQuery.of(context).size.height- 60,
+                          decoration: BoxDecoration(
                             color: ColorManager.white,
-                            child: Padding(
-                              padding: EdgeInsets.all(
-                                  MediaQuery.of(context).size.height /
-                                      80),
-                              child: Image.asset(
-                                "images/ummasons_logo.png",
-                                // width: double.minPositive,
-                                // width: MediaQuery.of(context).size.width / 2,
-                              ),
-                            ),
-                          )
-                              : const SizedBox(height: 40,),
-                          Container(
-                            height:MediaQuery.of(context).size.height- 60,
-                            decoration: BoxDecoration(
-                              color: ColorManager.white,
-                              //borderRadius: BorderRadius.only(topRight: Radius.circular(10),topLeft: Radius.circular(20))
-                            ),
-                            // height: MediaQuery.of(context).size.height - 100,
-                            child: UserSideBar(
-                                heading: heading,
-                                //screen: appUserScreen,
-                                onBackButtonTapped: () {
-                                  onBack();
-                                }, screen: appScreen,),
-                          )
-                        ],
-                      ),
+                            //borderRadius: BorderRadius.only(topRight: Radius.circular(10),topLeft: Radius.circular(20))
+                          ),
+                          // height: MediaQuery.of(context).size.height - 100,
+                          child: UserSideBar(
+                              heading: heading,
+                              //screen: appUserScreen,
+                              onBackButtonTapped: () {
+                                onBack();
+                              }, screen: appScreen,),
+                        )
+                      ],
                     ),
-                  )),
+                  )
+              ),
               Expanded(
                   flex: 5,
                   child: Container(
@@ -90,14 +82,13 @@ class UserResponsiveScreen extends StatelessWidget {
                     child: Stack(
                       children: [
                         Container(
-                          //color: Colors.blue,
+                         //color: Colors.blue,
                           height: 220,
                           width: MediaQuery.of(context).size.width,
                           child: ScrollConfiguration(
-                            behavior: ScrollConfiguration.of(context)
-                                .copyWith(scrollbars: true),
+                            behavior: ScrollConfiguration.of(context).copyWith(scrollbars: true),
                             child: ListView(
-                             physics: NeverScrollableScrollPhysics(),
+                            physics: NeverScrollableScrollPhysics(),
                               children: [
                                 Container(
                                   //color: Colors.redAccent,
@@ -115,10 +106,12 @@ class UserResponsiveScreen extends StatelessWidget {
                                     children: appBarSpaceChildren,
                                   ),
                                 ),
-                                Container(
-                                  // color: Colors.greenAccent,
-                                  child: tableHeading,
-                                ),
+                                if(tableHeadingIsThere)
+                                  Container(
+                                    // color: Colors.greenAccent,
+                                    child: tableHeading,
+                                  ),
+
                               ],
                             ),
                           ),

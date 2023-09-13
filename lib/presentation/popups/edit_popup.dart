@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pum_supervisor/resources/color_manager.dart';
-import 'package:pum_supervisor/resources/value_manager.dart';
 import 'package:pum_supervisor/user_responsive_screen/edit_popup_constant.dart';
 
 import '../../resources/font_manager.dart';
@@ -165,37 +164,42 @@ class _EditPopupState extends State<EditPopup> {
                       ],
                     ),
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.height / 6),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    //crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Activities",
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                            fontFamily: FontConstants.fontFamily2,
-                            color: ColorManager.black,
-                            fontWeight: FontWeightManager.bold,
-                            fontSize: FontSize.s15),
-                      ),
-                      Text(
-                        "Downtime Code",
-                        style: TextStyle(
-                            fontFamily: FontConstants.fontFamily2,
-                            color: ColorManager.black,
-                            fontWeight: FontWeightManager.bold,
-                            fontSize: FontSize.s15),
-                      ),
-                      Text(
-                        "Downtime",
-                        style: TextStyle(
-                            fontFamily: FontConstants.fontFamily2,
-                            color: ColorManager.black,
-                            fontWeight: FontWeightManager.bold,
-                            fontSize: FontSize.s15),
-                      ),
-                    ],
+                  SizedBox(height: MediaQuery.of(context).size.height / 8),
+                  Padding(
+                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width/45),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      //crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Activities",
+                          textAlign: TextAlign.start,
+                          style: TextStyle(
+                              fontFamily: FontConstants.fontFamily2,
+                              color: ColorManager.black,
+                              fontWeight: FontWeightManager.bold,
+                              fontSize: MediaQuery.of(context).size.width/90),
+                        ),
+                        SizedBox(width: MediaQuery.of(context).size.width / 6.5),
+                        Text(
+                          "Downtime Code",
+                          style: TextStyle(
+                              fontFamily: FontConstants.fontFamily2,
+                              color: ColorManager.black,
+                              fontWeight: FontWeightManager.bold,
+                              fontSize: MediaQuery.of(context).size.width/90),
+                        ),
+                        SizedBox(width: MediaQuery.of(context).size.width / 7),
+                        Text(
+                          "Downtime",
+                          style: TextStyle(
+                              fontFamily: FontConstants.fontFamily2,
+                              color: ColorManager.black,
+                              fontWeight: FontWeightManager.bold,
+                              fontSize: MediaQuery.of(context).size.width/90),
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(height: 10),
 

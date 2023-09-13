@@ -39,7 +39,9 @@ class CustomRowWidget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Text(labelText1),
+                  Text(labelText1,style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width/100,
+                      color: ColorManager.grey),),
                   SizedBox(width: MediaQuery.of(context).size.width / 50),
                   Container(
                     height: MediaQuery.of(context).size.height / 20,
@@ -71,7 +73,9 @@ class CustomRowWidget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Text(labelText2),
+                  Text(labelText2,style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width/100,
+                      color: ColorManager.grey),),
                   SizedBox(width: MediaQuery.of(context).size.width / 50),
                   Container(
                     height: MediaQuery.of(context).size.height / 20,
@@ -97,7 +101,9 @@ class CustomRowWidget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Text(labelText3),
+                  Text(labelText3,style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width/100,
+                      color: ColorManager.grey),),
                   SizedBox(width: MediaQuery.of(context).size.width / 50),
                   Container(
                     height: MediaQuery.of(context).size.height / 20,
@@ -105,7 +111,7 @@ class CustomRowWidget extends StatelessWidget {
                     child: TextField(
                       controller: textController2,
                       decoration: InputDecoration(
-                          labelText: '',
+                          //labelText: '',
                           // Set border for enabled state (default)
                           enabledBorder: OutlineInputBorder(
                             borderSide:
