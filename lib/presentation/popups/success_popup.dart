@@ -37,10 +37,10 @@ class SuccessPopup extends StatelessWidget {
                       Container(
                         height: MediaQuery.of(context).size.height / 23,
                         width: MediaQuery.of(context).size.width / 13,
-                        child: ElevatedButton(onPressed: (){
+                        child: TextButton(onPressed: (){
                           Navigator.pop(context);
                         },
-                            style: ElevatedButton.styleFrom(shape: StadiumBorder(),backgroundColor: ColorManager.faintb),
+                            style: TextButton.styleFrom(backgroundColor: ColorManager.faintb),
                             child: Text('Back',style: TextStyle(fontFamily: FontConstants.fontFamily2,
                             fontWeight: FontWeightManager.bold,
                             fontSize: MediaQuery.of(context).size.width / 90,
