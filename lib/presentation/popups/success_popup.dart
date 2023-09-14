@@ -11,51 +11,66 @@ class SuccessPopup extends StatelessWidget {
       child: Material(
         child: Container(
           color: ColorManager.white,
-          height: MediaQuery.of(context).size.height / 3.5,
+          height: MediaQuery.of(context).size.height / 3.7,
           width: MediaQuery.of(context).size.width / 3.3,
           child: Padding(
             padding: const EdgeInsets.all(20),
-            child: ListView(
-              children: [Column(
+            child: ListView(children: [
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Success Message / Error Message',
-                    style: TextStyle(fontFamily: FontConstants.fontFamily2,
+                  Text(
+                    'Success Message / Error Message',
+                    style: TextStyle(
+                        fontFamily: FontConstants.fontFamily2,
                         fontWeight: FontWeightManager.bold,
-                        fontSize: MediaQuery.of(context).size.width / 80,
-                        color: ColorManager.black),),
-                  SizedBox(height: MediaQuery.of(context).size.height / 35,),
-                  Text('Message Details',
-                    style: TextStyle(fontFamily: FontConstants.fontFamily2,
+                        fontSize: MediaQuery.of(context).size.width / 60,
+                        color: ColorManager.black),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 35,
+                  ),
+                  Text(
+                    'Message Details',
+                    style: TextStyle(
+                        fontFamily: FontConstants.fontFamily2,
                         fontWeight: FontWeightManager.regular,
-                        fontSize: MediaQuery.of(context).size.width / 100,
-                        color: ColorManager.black),),
-                  SizedBox(height: MediaQuery.of(context).size.height / 15,),
+                        fontSize: MediaQuery.of(context).size.width / 70,
+                        color: ColorManager.black),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 15,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Container(
                         height: MediaQuery.of(context).size.height / 23,
-                        width: MediaQuery.of(context).size.width / 13,
-                        child: TextButton(onPressed: (){
-                          Navigator.pop(context);
-                        },
-                            style: TextButton.styleFrom(backgroundColor: ColorManager.faintb),
-                            child: Text('Back',style: TextStyle(fontFamily: FontConstants.fontFamily2,
-                            fontWeight: FontWeightManager.bold,
-                            fontSize: MediaQuery.of(context).size.width / 90,
-                            color: ColorManager.white),)),
+                        width: MediaQuery.of(context).size.width / 10,
+                        child: TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            style: TextButton.styleFrom(
+                                backgroundColor: ColorManager.faintb),
+                            child: Text(
+                              'Back',
+                              style: TextStyle(
+                                  fontFamily: FontConstants.fontFamily2,
+                                  fontWeight: FontWeightManager.bold,
+                                  fontSize:
+                                      MediaQuery.of(context).size.width / 70,
+                                  color: ColorManager.white),
+                            )),
                       )
                     ],
                   )
-
                 ],
               ),
             ]),
           ),
         ),
       ),
-
     );
   }
 }

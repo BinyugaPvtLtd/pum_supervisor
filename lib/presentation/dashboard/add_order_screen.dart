@@ -24,15 +24,16 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
   @override
   Widget build(BuildContext context) {
     return UserResponsiveScreen(
-      
       appBarChildren: [
-        UserAppfilledButton(text: 'Confirm',
-          padding:  EdgeInsets.symmetric(
-            vertical: MediaQuery.of(context).size.height/38,
-            horizontal: MediaQuery.of(context).size.width/40,),
+        UserAppfilledButton(
+          text: 'Confirm',
+          padding: EdgeInsets.symmetric(
+            vertical: MediaQuery.of(context).size.height / 38,
+            horizontal: MediaQuery.of(context).size.width / 40,
+          ),
           color: ColorManager.green,
-
-          textStyle: TextStyle(fontWeight: FontWeight.w600,color: Colors.white),
+          textStyle:
+              TextStyle(fontWeight: FontWeight.w600, color: Colors.white),
         )
       ],
       appBarSpaceChildren: [
@@ -44,42 +45,48 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
               Container(
                   decoration: BoxDecoration(
                       border: Border.all(color: ColorManager.faintb, width: 2),
-                      borderRadius: BorderRadius.circular(10)
-                  ),
+                      borderRadius: BorderRadius.circular(10)),
                   padding: EdgeInsets.all(2),
                   width: MediaQuery.of(context).size.width / 5,
                   height: AppSize.s30,
                   child: DropdownButton(
                     alignment: Alignment.topLeft,
-                    hint: Text("1234456678899",style: TextStyle(fontFamily: FontConstants.fontFamily2,
-                        fontWeight: FontWeightManager.bold,
-                        color: ColorManager.faintb,
-                        fontSize: MediaQuery.of(context).size.width / 80),),
+                    hint: Text(
+                      "1234456678899",
+                      style: TextStyle(
+                          fontFamily: FontConstants.fontFamily2,
+                          fontWeight: FontWeightManager.bold,
+                          color: ColorManager.faintb,
+                          fontSize: MediaQuery.of(context).size.width / 80),
+                    ),
                     value: valueChoose,
                     underline: SizedBox(),
                     isExpanded: true,
                     icon: Icon(Icons.keyboard_arrow_down_outlined),
-                    onChanged: (val){
+                    onChanged: (val) {
                       setState(() {
                         valueChoose = val as String?;
                       });
                     },
                     items: ListItems.map((ValueItem) {
-                      return DropdownMenuItem(value: ValueItem,child: Text(ValueItem,style: TextStyle(
-                          fontFamily: FontConstants.fontFamily2,
-                          fontWeight: FontWeightManager.bold,
-                          color: ColorManager.faintb,
-                          fontSize: MediaQuery.of(context).size.width / 80
-                      ),),);
+                      return DropdownMenuItem(
+                        value: ValueItem,
+                        child: Text(
+                          ValueItem,
+                          style: TextStyle(
+                              fontFamily: FontConstants.fontFamily2,
+                              fontWeight: FontWeightManager.bold,
+                              color: ColorManager.faintb,
+                              fontSize: MediaQuery.of(context).size.width / 80),
+                        ),
+                      );
                     }).toList(),
-                  )
-              ),
+                  )),
             ],
           ),
         )
       ],
       appScreen: AppUserScreen.addOrder,
-      
       heading: AppString.addorder,
       onBack: () {},
       tableHeading: SizedBox(),
@@ -94,13 +101,12 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                   //     const BorderRadius.all(Radius.circular(10)),
                   boxShadow: [
                     BoxShadow(
-                      color:
-                          Colors.black45.withOpacity(0.2), // Shadow color
+                      color: Colors.black45.withOpacity(0.2), // Shadow color
                       spreadRadius:
                           1, // How far the shadow should spread (positive values spread outwards, negative values spread inwards)
                       blurRadius: 2, // The blur radius of the shadow
-                      offset: Offset(
-                          0, 2), // The offset of the shadow from the box
+                      offset:
+                          Offset(0, 2), // The offset of the shadow from the box
                     ),
                   ],
                 ),
@@ -177,8 +183,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                                     fontSize: FontSize.s15),
                               ),
                               SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height / 60,
+                                height: MediaQuery.of(context).size.height / 60,
                               ),
                               Text(
                                 '100',
@@ -203,8 +208,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                                     fontSize: FontSize.s15),
                               ),
                               SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height / 60,
+                                height: MediaQuery.of(context).size.height / 60,
                               ),
                               Text(
                                 '0',
@@ -231,8 +235,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                                     fontSize: FontSize.s15),
                               ),
                               SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height / 60,
+                                height: MediaQuery.of(context).size.height / 60,
                               ),
                               Text(
                                 '20',
@@ -250,8 +253,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                             child: ElevatedButton(
                               onPressed: () {},
                               style: ElevatedButton.styleFrom(
-                                backgroundColor:
-                                    ColorManager.buttongridecolor,
+                                backgroundColor: ColorManager.buttongridecolor,
                               ),
                               child: Text(
                                 'Edit',
@@ -270,7 +272,8 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                 ),
               ),
             );
-          }), tableHeadingIsThere: false,
+          }),
+      tableHeadingIsThere: false,
     );
   }
 }

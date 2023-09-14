@@ -20,11 +20,15 @@ class _ForgetScreenSupervisorState extends State<ForgetScreenSupervisor> {
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor:ColorManager.navyblue,
+          backgroundColor: ColorManager.navyblue,
           flexibleSpace: Padding(
             padding: const EdgeInsets.only(top: 5, left: 15),
             child: Row(
-              children: [Image.asset('images/ummasons_logo.png',),],
+              children: [
+                Image.asset(
+                  'images/ummasons_logo.png',
+                ),
+              ],
             ),
           ),
         ),
@@ -75,7 +79,7 @@ class _ForgetScreenSupervisorState extends State<ForgetScreenSupervisor> {
                             height: AppSize.s10,
                           ),
                           TextFormField(
-                            // controller: _adminemailController,
+                              // controller: _adminemailController,
                               keyboardType: TextInputType.emailAddress,
                               textInputAction: TextInputAction.next,
                               decoration: InputDecoration(
@@ -89,17 +93,14 @@ class _ForgetScreenSupervisorState extends State<ForgetScreenSupervisor> {
                                       borderSide: BorderSide(
                                           color: ColorManager.lightblue,
                                           width: 2.0),
-                                      borderRadius: BorderRadius.circular(16)
-                                  ),
+                                      borderRadius: BorderRadius.circular(16)),
                                   enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                           color: ColorManager.grey, width: 2.0),
-                                      borderRadius: BorderRadius.circular(16)
-
-                                  )),
+                                      borderRadius: BorderRadius.circular(16))),
                               validator: (value) {
                                 final bool emailValid = RegExp(
-                                    r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                                     .hasMatch(value!);
 
                                 if (value!.isEmpty) {
@@ -142,43 +143,40 @@ class _ForgetScreenSupervisorState extends State<ForgetScreenSupervisor> {
                     const SizedBox(
                       height: AppSize.s80,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: AppSize.s80),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            height: AppSize.s36,
-                            width: AppSize.s210,
-                            child: ElevatedButton(
-                              focusNode: fieldTow,
-                              onPressed: () {
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          ThankyouscreenSupervisor()),
-                                );
-                              },
-                              child: Text(
-                                'Request',
-                                style: TextStyle(
-                                    fontFamily: FontConstants.fontFamily2,
-                                    fontWeight: FontWeightManager.bold,
-                                    color: ColorManager.white,
-                                    fontSize: FontSize.s16),
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(50),
-                                  ),
-                                  elevation: 2,
-                                  backgroundColor: ColorManager.appbarcolor),
+                    Row(
+                      //crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: AppSize.s36,
+                          width: AppSize.s210,
+                          child: ElevatedButton(
+                            focusNode: fieldTow,
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        ThankyouscreenSupervisor()),
+                              );
+                            },
+                            child: Text(
+                              'Request',
+                              style: TextStyle(
+                                  fontFamily: FontConstants.fontFamily2,
+                                  fontWeight: FontWeightManager.bold,
+                                  color: ColorManager.white,
+                                  fontSize: FontSize.s16),
                             ),
+                            style: ElevatedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                elevation: 2,
+                                backgroundColor: ColorManager.appbarcolor),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     )
                   ],
                 ),
