@@ -91,7 +91,7 @@ class CustomRowWidget extends StatelessWidget {
                       underline: SizedBox(),
                       isExpanded: true,
                       icon: Icon(Icons.keyboard_arrow_down_outlined,),
-                      //iconSize: 15,
+                      iconSize: MediaQuery.of(context).size.width/75,
                       onChanged: onDropdownChanged,
                       items: <String>['Option 1', 'Option 2', 'Option 3']
                           .map<DropdownMenuItem<String>>((String value) {

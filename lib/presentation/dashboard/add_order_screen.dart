@@ -118,18 +118,18 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                                 style: TextStyle(
                                     fontFamily: FontConstants.fontFamily2,
                                     color: ColorManager.appbarcolor,
-                                    fontWeight: FontWeightManager.bold,
+                                    fontWeight: FontWeightManager.semoBold,
 //fontWeight: FontWeightManager.bold,
-                                    fontSize: FontSize.s15),
+                                    fontSize: FontSize.s16),
                               ),
                               Text(
                                 'Welding (10)',
                                 style: TextStyle(
                                     fontFamily: FontConstants.fontFamily2,
                                     color: ColorManager.appbarcolor,
-                                    fontWeight: FontWeightManager.bold,
+                                    fontWeight: FontWeight.w900,
 //fontWeight: FontWeightManager.bold,
-                                    fontSize: FontSize.s15),
+                                    fontSize: FontSize.s16),
                               ),
                             ],
                           ),

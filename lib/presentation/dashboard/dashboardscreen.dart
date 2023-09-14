@@ -152,7 +152,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: 15,
+              fontSize: MediaQuery.of(context).size.width/100,
             )),
 
         Text("Message",
@@ -160,84 +160,84 @@ class _DashboardScreenState extends State<DashboardScreen> {
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: 15,
+              fontSize: MediaQuery.of(context).size.width/100,
             )),
         Text("Status",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: 15,
+              fontSize: MediaQuery.of(context).size.width/100,
             )),
         Text("Order No",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: 15,
+              fontSize: MediaQuery.of(context).size.width/100,
             )),
         Text("Operation",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: 15,
+              fontSize: MediaQuery.of(context).size.width/100,
             )),
         Text("Material No.",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: 15,
+              fontSize: MediaQuery.of(context).size.width/100,
             )),
         Text("Description",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: 15,
+              fontSize: MediaQuery.of(context).size.width/100,
             )),
         Text("Order Qty",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: 15,
+              fontSize: MediaQuery.of(context).size.width/100,
             )),
         Text("Pending Qty",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: 15,
+              fontSize: MediaQuery.of(context).size.width/100,
             )),
         Text("Rejection",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: 15,
+              fontSize: MediaQuery.of(context).size.width/100,
             )),
         Text("Rework",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: 15,
+              fontSize: MediaQuery.of(context).size.width/100,
             )),
         Text("Confirmed Qty",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: 15,
+              fontSize: MediaQuery.of(context).size.width/100,
             )),
         Text("Balanced Qty",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: 15,
+              fontSize: MediaQuery.of(context).size.width/100,
             )),
 
 
@@ -269,8 +269,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                          ?.copyWith(
                          fontFamily: FontConstants.fontFamily2,
                          color: ColorManager.faintb,
-                         fontWeight: FontWeightManager.bold,
-                         fontSize: FontSize.s15_25),
+                         fontWeight: FontWeightManager.semoBold,
+                         fontSize: FontSize.s15),
                      textAlign: TextAlign.center),
                ),
                Text('Cancel',
@@ -280,8 +280,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.red,
-                       fontWeight: FontWeightManager.medium,
-                       fontSize: FontSize.s15_25),
+                       fontWeight: FontWeightManager.semoBold,
+                       fontSize: FontSize.s14),
                    textAlign: TextAlign.center),
                InkWell(
                  onTap: (){
@@ -294,8 +294,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                          ?.copyWith(
                          fontFamily: FontConstants.fontFamily2,
                          color: ColorManager.faintb,
-                         fontWeight: FontWeightManager.medium,
-                         fontSize: FontSize.s15_25),
+                         fontWeight: FontWeightManager.semoBold,
+                         fontSize: FontSize.s14),
                      textAlign: TextAlign.center),
                ),
                Text('SAPCNF',
@@ -305,8 +305,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.bold,
-                       fontSize: FontSize.s15_25),
+                       fontWeight: FontWeightManager.medium,
+                       fontSize: FontSize.s13),
                    textAlign: TextAlign.center),
                Text('100001',
                    style: Theme.of(context)
@@ -315,8 +315,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.bold,
-                       fontSize: FontSize.s15_25),
+                       fontWeight: FontWeightManager.medium,
+                       fontSize: FontSize.s13),
                    textAlign: TextAlign.center),
                Text('Welding (10)',
                    style: Theme.of(context)
@@ -325,8 +325,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.bold,
-                       fontSize: FontSize.s15_25),
+                       fontWeight: FontWeightManager.medium,
+                       fontSize: FontSize.s13),
                    textAlign: TextAlign.center),
                Text('8010000010',
                    style: Theme.of(context)
@@ -335,8 +335,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.bold,
-                       fontSize: FontSize.s15_25),
+                       fontWeight: FontWeightManager.medium,
+                       fontSize: FontSize.s13),
                    textAlign: TextAlign.center),
                Text('BOXER SWING ARM ',
                    style: Theme.of(context)
@@ -345,8 +345,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.bold,
-                       fontSize: FontSize.s15_25),
+                       fontWeight: FontWeightManager.medium,
+                       fontSize: FontSize.s13),
                    textAlign: TextAlign.center),
                Text('100 ',
                    style: Theme.of(context)
@@ -355,8 +355,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.bold,
-                       fontSize: FontSize.s15_25),
+                       fontWeight: FontWeightManager.medium,
+                       fontSize: FontSize.s13),
                    textAlign: TextAlign.center),
                Text('100 ',
                    style: Theme.of(context)
@@ -365,8 +365,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.bold,
-                       fontSize: FontSize.s15_25),
+                       fontWeight: FontWeightManager.medium,
+                       fontSize: FontSize.s13),
                    textAlign: TextAlign.center),
                Text('10 ',
                    style: Theme.of(context)
@@ -375,8 +375,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.red,
-                       fontWeight: FontWeightManager.bold,
-                       fontSize: FontSize.s15_25),
+                       fontWeight: FontWeightManager.medium,
+                       fontSize: FontSize.s13),
                    textAlign: TextAlign.center),
                Text('5 ',
                    style: Theme.of(context)
@@ -385,8 +385,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.bold,
-                       fontSize: FontSize.s15_25),
+                       fontWeight: FontWeightManager.medium,
+                       fontSize: FontSize.s13),
                    textAlign: TextAlign.center),
                Text('80 ',
                    style: Theme.of(context)
@@ -395,8 +395,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.bold,
-                       fontSize: FontSize.s15_25),
+                       fontWeight: FontWeightManager.medium,
+                       fontSize: FontSize.s13),
                    textAlign: TextAlign.center),
                Text('10 ',
                    style: Theme.of(context)
@@ -405,8 +405,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.bold,
-                       fontSize: FontSize.s15_25),
+                       fontWeight: FontWeightManager.medium,
+                       fontSize: FontSize.s13),
                    textAlign: TextAlign.center),
              ],
              onClick: () {

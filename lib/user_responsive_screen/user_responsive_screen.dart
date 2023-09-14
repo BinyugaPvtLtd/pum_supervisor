@@ -37,7 +37,7 @@ class UserResponsiveScreen extends StatelessWidget {
                   flex: 1,
                   child: Container(
                     //color: Colors.green,
-                    color: Color(0xffF6F6F6),
+                   // color: Color(0xff1E56A0),
                     height: MediaQuery.of(context).size.height,
                     child: ListView(
                       physics: NeverScrollableScrollPhysics(),
@@ -58,9 +58,9 @@ class UserResponsiveScreen extends StatelessWidget {
                         )
                             : const SizedBox(height: 40,),
                         Container(
-                          height:MediaQuery.of(context).size.height- 60,
+                          height:MediaQuery.of(context).size.height- 50,
                           decoration: BoxDecoration(
-                            color: ColorManager.white,
+                            //color: ColorManager.primary,
                             //borderRadius: BorderRadius.only(topRight: Radius.circular(10),topLeft: Radius.circular(20))
                           ),
                           // height: MediaQuery.of(context).size.height - 100,
