@@ -41,7 +41,7 @@ class CustomRowWidget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Text(labelText1,style: TextStyle(
+                  Text(labelText1,textAlign:TextAlign.start,style: TextStyle(
                       fontSize: MediaQuery.of(context).size.width/100,
                       color: ColorManager.grey),),
                   SizedBox(width: MediaQuery.of(context).size.width / 50),

@@ -52,7 +52,7 @@ class ConfirmedTabelCardWidget extends StatelessWidget {
         elevation: 4,
         child: Container(
           decoration: BoxDecoration(
-            color:Colors.white24,
+            color:Colors.green.shade50,
             borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
           padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 20),

@@ -228,7 +228,7 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
       table: ListView.builder(
         //scrollDirection: Axis.horizontal,
         //shrinkWrap: true,
-          itemCount: 10,
+          itemCount: 5,
           itemBuilder: (BuildContext context, index){
             return ConfirmedTabelCardWidget(
               fields: [

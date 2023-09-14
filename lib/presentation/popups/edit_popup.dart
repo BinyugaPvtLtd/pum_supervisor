@@ -202,9 +202,8 @@ class _EditPopupState extends State<EditPopup> {
                     ),
                   ),
                   SizedBox(height: 10),
-
                   CustomRowWidget(
-                    labelText1: 'Process     ',
+                    labelText1: 'Process   ',
                     textController1: TextEditingController(),
                     labelText2: 'Downtime code 1',
                     dropdownValue: 'Option 1',
@@ -215,7 +214,7 @@ class _EditPopupState extends State<EditPopup> {
                     textController2: TextEditingController(),
                   ),
                   CustomRowWidget(
-                    labelText1: 'Contract    \nWelder  ',
+                    labelText1: 'Contract  \nWelder',
                     textController1: TextEditingController(),
                     labelText2: 'Downtime code 2',
                     dropdownValue: 'Option 1',
@@ -227,7 +226,7 @@ class _EditPopupState extends State<EditPopup> {
                   ),
 
                   CustomRowWidget(
-                    labelText1: 'Helper        ',
+                    labelText1: 'Helper      ',
                     textController1: TextEditingController(),
                     labelText2: 'Downtime code 3',
                     dropdownValue: 'Option 1',
@@ -260,37 +259,35 @@ class _EditPopupState extends State<EditPopup> {
                     textController2: TextEditingController(),
                   ),
 
-                  Padding(
-                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width/50),
-                    child: Row(
-                      children: [
-                        Text('Argon Gas',style: TextStyle(
-                            fontSize: MediaQuery.of(context).size.width/100,
-                            color: ColorManager.grey),),
-                        SizedBox(width: MediaQuery.of(context).size.width / 50),
-                        Container(
-                          height: MediaQuery.of(context).size.height / 20,
-                          width: MediaQuery.of(context).size.width / 10,
-                          child: TextField(
-                            controller: TextEditingController(),
-                            decoration: InputDecoration(
-                                labelText: '',
-                                // Set border for enabled state (default)
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide:
-                                  const BorderSide(width: 1, color: Colors.black),
-                                  //borderRadius: BorderRadius.circular(15),
-                                ),
-                                // Set border for focused state
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide:
-                                  const BorderSide(width: 1, color: Colors.red),
-                                  //borderRadius: BorderRadius.circular(15),
-                                )),
-                          ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text('Argon Gas',textAlign: TextAlign.center,style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width/100,
+                          color: ColorManager.grey),),
+                      SizedBox(width: MediaQuery.of(context).size.width / 50),
+                      Container(
+                        height: MediaQuery.of(context).size.height / 20,
+                        width: MediaQuery.of(context).size.width / 10,
+                        child: TextField(
+                          controller: TextEditingController(),
+                          decoration: InputDecoration(
+                              labelText: '',
+                              // Set border for enabled state (default)
+                              enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                const BorderSide(width: 1, color: Colors.black),
+                                //borderRadius: BorderRadius.circular(15),
+                              ),
+                              // Set border for focused state
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                const BorderSide(width: 1, color: Colors.red),
+                                //borderRadius: BorderRadius.circular(15),
+                              )),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                   SizedBox(height: 10),
                   Row(

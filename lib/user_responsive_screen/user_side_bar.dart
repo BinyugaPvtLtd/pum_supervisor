@@ -75,6 +75,7 @@ class _UserSideBarState extends State<UserSideBar> {
           padding: EdgeInsets.only(left: 10, top: 20, bottom: 20, right: 20),
           // color: ColorManager.primary,
           child: ListView(
+            scrollDirection: Axis.vertical,
             //mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
