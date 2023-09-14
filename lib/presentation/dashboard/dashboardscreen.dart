@@ -38,8 +38,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
           children: [
             Container(
               width: MediaQuery.of(context).size.width / 8,
-              height: MediaQuery.of(context).size.height / 23,
-              alignment: Alignment.center,
+              height: AppSize.s30,
+             alignment: Alignment.center,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
@@ -50,7 +50,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               child:
               TextField(
                 textAlign: TextAlign.center,
-                // textAlignVertical: TextAlignVertical.center,
+                textAlignVertical: TextAlignVertical.center,
                 controller: datecontroller,
                 decoration:  InputDecoration(
                   //contentPadding: EdgeInsets.only(top: 10,bottom: 10),
@@ -60,7 +60,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     fontSize: MediaQuery.of(context).size.width / 80,
                     fontWeight: FontWeightManager.bold,
                     color: ColorManager.black,),
-                  suffixIcon:  Icon(Icons.keyboard_arrow_down_outlined),
+                  suffixIcon:  Icon(Icons.keyboard_arrow_down_outlined,size: 20,),
                 ),
                 style: TextStyle(fontFamily: FontConstants.fontFamily2,
                     fontWeight: FontWeightManager.bold,
@@ -90,7 +90,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
                 //padding: EdgeInsets.all(3),
                 width: MediaQuery.of(context).size.width / 8,
-                height: MediaQuery.of(context).size.height / 23,
+                height: AppSize.s30,
                 child: DropdownButton(
 
                   alignment: Alignment.center,
@@ -101,7 +101,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   value: valueChoose,
                   underline: SizedBox(),
                   isExpanded: true,
-                  icon: Icon(Icons.keyboard_arrow_down_outlined),
+                  icon: Icon(Icons.keyboard_arrow_down_outlined,size: 20,),
                   onChanged: (val){
                     setState(() {
                       valueChoose = val as String?;
@@ -125,7 +125,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 vertical: MediaQuery.of(context).size.height/38,
                 horizontal: MediaQuery.of(context).size.width/40,),
               color: ColorManager.green,
-
               textStyle: TextStyle(fontWeight: FontWeight.w600,color: Colors.white),
             )
           ],

@@ -46,9 +46,9 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                       border: Border.all(color: ColorManager.faintb, width: 2),
                       borderRadius: BorderRadius.circular(10)
                   ),
-                  //padding: EdgeInsets.all(3),
+                  padding: EdgeInsets.all(2),
                   width: MediaQuery.of(context).size.width / 5,
-                  height: MediaQuery.of(context).size.height / 23,
+                  height: AppSize.s30,
                   child: DropdownButton(
                     alignment: Alignment.topLeft,
                     hint: Text("1234456678899",style: TextStyle(fontFamily: FontConstants.fontFamily2,
