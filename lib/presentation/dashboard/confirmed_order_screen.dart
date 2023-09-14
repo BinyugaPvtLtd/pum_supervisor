@@ -34,7 +34,7 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
           children: [
             Container(
               width: MediaQuery.of(context).size.width / 8,
-              height: MediaQuery.of(context).size.height / 23,
+              height: AppSize.s30,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
@@ -86,9 +86,8 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
                 ),
                 //padding: EdgeInsets.all(3),
                 width: MediaQuery.of(context).size.width / 8,
-                height: MediaQuery.of(context).size.height / 23,
+                height: AppSize.s30,
                 child: DropdownButton(
-
                   alignment: Alignment.center,
                   hint: Text(ListItems[0],style: TextStyle(fontFamily: FontConstants.fontFamily2,
                       fontWeight: FontWeightManager.bold,
