@@ -1,7 +1,12 @@
+import 'dart:convert';
+import 'dart:core';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pum_supervisor/constant/table_card_widget.dart';
 import 'package:pum_supervisor/constant/table_heading_widget.dart';
+import 'package:pum_supervisor/presentation/modals/operation_model.dart';
 import 'package:pum_supervisor/presentation/popups/edit_popup.dart';
 import 'package:pum_supervisor/presentation/popups/success_popup.dart';
 import 'package:pum_supervisor/resources/color_manager.dart';
@@ -11,8 +16,6 @@ import 'package:pum_supervisor/resources/value_manager.dart';
 import 'package:pum_supervisor/user_responsive_screen/user_appfilled_button.dart';
 import 'package:pum_supervisor/user_responsive_screen/user_enum.dart';
 import 'package:pum_supervisor/user_responsive_screen/user_responsive_screen.dart';
-
-
 class DashboardScreen extends StatefulWidget {
   DashboardScreen({super.key});
 
@@ -23,9 +26,20 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   bool checkValue = false;
   bool checkValue1 = false;
+  //final allChecked = CheckBoxModal(value: false);
   String? valueChoose;
   List ListItems =["SHIFT 1", "SHIFT 2", "SHIFT 3", "SHIFT 4"];
   TextEditingController datecontroller = TextEditingController();
+
+  // Future<void> readJson() async {
+  //   final String response = await rootBundle.loadString('assets/sample.json');
+  //   final data = await json.decode(response);
+  //   _items = data['items'];
+  //   readJson();
+  //   print("data ${_items.length}");
+  // }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -139,11 +153,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
             activeColor: Colors.blueAccent,
             side: BorderSide(color: ColorManager.white,
                 width: 3),
-            onChanged: (val){
-              setState(() {
-                checkValue = val!;
-              });
-
+            onChanged: (val) {
+          setState(() {
+            checkValue = val!;
+          });
             }),
 
         Text(" ",
@@ -151,7 +164,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
+              fontSize: 15,
             )),
 
         Text("Message",
@@ -159,264 +172,294 @@ class _DashboardScreenState extends State<DashboardScreen> {
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
+              fontSize: 15,
             )),
         Text("Status",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
+              fontSize: 15,
             )),
         Text("Order No",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
+              fontSize: 15,
             )),
         Text("Operation",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
+              fontSize: 15,
             )),
         Text("Material No.",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
+              fontSize: 15,
             )),
         Text("Description",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
+              fontSize: 15,
             )),
         Text("Order Qty",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
+              fontSize: 15,
             )),
         Text("Pending Qty",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
+              fontSize: 15,
             )),
         Text("Rejection",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
+              fontSize: 15,
             )),
         Text("Rework",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
+              fontSize: 15,
             )),
         Text("Confirmed Qty",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
+              fontSize: 15,
             )),
         Text("Balanced Qty",
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               color: ColorManager.white,
               fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
+              fontSize: 15,
             )),
-
-
       ]),
-      table: ListView.builder(
+      table: FutureBuilder(
+        future: DefaultAssetBundle.of(context)
+        .loadString('assets/sample.json'),
+    builder: (context, snapshot) {
+      List<OperationModel> operations = [];
+    // Decode the JSON
+    List? data1 = json.decode(snapshot.data.toString());
+    data1?.forEach((element) {print(element["dbid"]);
+    operations.add(OperationModel(confirm: element["confirm"],
+        check: element["check"],
+        edit: element["edit"],
+        cancle: element["edit"],
+        Message: element["Message"],
+        Status: element["Status"],
+        OrderNo: element["OrderNo"],
+        Operation: element["Operation"],
+        MaterialNo: element["MaterialNo"],
+        Description: element["Description"],
+        OrderQty: element["OrderQty"],
+        PendingQty:element["PendingQty"],
+        Rejection: element["Rejection"],
+        Rework:element["Rework"],
+        ConfirmedQty: element["ConfirmedQty"],
+        BalancedQty: element["BalancedQty"]));
+    });
+    return ListView.builder(
         //scrollDirection: Axis.horizontal,
         //shrinkWrap: true,
-        itemCount: 10,
+        itemCount: operations == null ? 0 : operations.length,
           itemBuilder: (BuildContext context, index){
            return TableCardWidget(
              fields: [
-               Checkbox(value: checkValue,
+               Checkbox(value:true,
                    activeColor: Colors.blueAccent,
                    side: BorderSide(color: ColorManager.faintb,
                        width: 2),
                    onChanged: (val){
                      setState(() {
-                       checkValue = val!;
+                       operations[index].check = operations[index].check ? false : true;
                      });
                    }),
                InkWell(
                  onTap: (){
                    showDialog(context: context, builder: (_)=>EditPopup());
                  },
-                 child: Text('Edit',
+                 child: Text(operations[index].edit,
                      style: Theme.of(context)
                          .textTheme
                          .titleSmall
                          ?.copyWith(
                          fontFamily: FontConstants.fontFamily2,
                          color: ColorManager.faintb,
-                         fontWeight: FontWeightManager.semoBold,
-                         fontSize: FontSize.s15),
+                         fontWeight: FontWeightManager.bold,
+                         fontSize: FontSize.s15_25),
                      textAlign: TextAlign.center),
                ),
-               Text('Cancel',
+               Text(operations[index].cancle,
                    style: Theme.of(context)
                        .textTheme
                        .titleSmall
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.red,
-                       fontWeight: FontWeightManager.semoBold,
-                       fontSize: FontSize.s14),
+                       fontWeight: FontWeightManager.medium,
+                       fontSize: FontSize.s15_25),
                    textAlign: TextAlign.center),
                InkWell(
                  onTap: (){
                    showDialog(context: context, builder: (_)=>SuccessPopup());
                  },
-                 child: Text('View',
+                 child: Text(operations[index].Message,
                      style: Theme.of(context)
                          .textTheme
                          .titleSmall
                          ?.copyWith(
                          fontFamily: FontConstants.fontFamily2,
                          color: ColorManager.faintb,
-                         fontWeight: FontWeightManager.semoBold,
-                         fontSize: FontSize.s14),
+                         fontWeight: FontWeightManager.medium,
+                         fontSize: FontSize.s15_25),
                      textAlign: TextAlign.center),
                ),
-               Text('SAPCNF',
+               Text(operations[index].Status,
                    style: Theme.of(context)
                        .textTheme
                        .titleSmall
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.medium,
-                       fontSize: FontSize.s13),
+                       fontWeight: FontWeightManager.regular,
+                       fontSize: FontSize.s15_25),
                    textAlign: TextAlign.center),
-               Text('100001',
+               Text(operations[index].OrderNo,
                    style: Theme.of(context)
                        .textTheme
                        .titleSmall
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.medium,
-                       fontSize: FontSize.s13),
+                       fontWeight: FontWeightManager.regular,
+                       fontSize: FontSize.s15_25),
                    textAlign: TextAlign.center),
-               Text('Welding (10)',
+               Text(operations[index].Operation,
                    style: Theme.of(context)
                        .textTheme
                        .titleSmall
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.medium,
-                       fontSize: FontSize.s13),
+                       fontWeight: FontWeightManager.regular,
+                       fontSize: FontSize.s15_25),
                    textAlign: TextAlign.center),
-               Text('8010000010',
+               Text(operations[index].MaterialNo,
                    style: Theme.of(context)
                        .textTheme
                        .titleSmall
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.medium,
-                       fontSize: FontSize.s13),
+                       fontWeight: FontWeightManager.regular,
+                       fontSize: FontSize.s15_25),
                    textAlign: TextAlign.center),
-               Text('BOXER SWING ARM ',
+               Text(operations[index].Description,
                    style: Theme.of(context)
                        .textTheme
                        .titleSmall
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.medium,
-                       fontSize: FontSize.s13),
+                       fontWeight: FontWeightManager.regular,
+                       fontSize: FontSize.s15_25),
                    textAlign: TextAlign.center),
-               Text('100 ',
+               Text(operations[index].OrderQty,
                    style: Theme.of(context)
                        .textTheme
                        .titleSmall
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.medium,
-                       fontSize: FontSize.s13),
+                       fontWeight: FontWeightManager.regular,
+                       fontSize: FontSize.s15_25),
                    textAlign: TextAlign.center),
-               Text('100 ',
+               Text(operations[index].PendingQty,
                    style: Theme.of(context)
                        .textTheme
                        .titleSmall
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.medium,
-                       fontSize: FontSize.s13),
+                       fontWeight: FontWeightManager.regular,
+                       fontSize: FontSize.s15_25),
                    textAlign: TextAlign.center),
-               Text('10 ',
+               Text(operations[index].Rejection,
                    style: Theme.of(context)
                        .textTheme
                        .titleSmall
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.red,
-                       fontWeight: FontWeightManager.medium,
-                       fontSize: FontSize.s13),
+                       fontWeight: FontWeightManager.regular,
+                       fontSize: FontSize.s15_25),
                    textAlign: TextAlign.center),
-               Text('5 ',
+               Text(operations[index].Rework,
                    style: Theme.of(context)
                        .textTheme
                        .titleSmall
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.medium,
-                       fontSize: FontSize.s13),
+                       fontWeight: FontWeightManager.regular,
+                       fontSize: FontSize.s15_25),
                    textAlign: TextAlign.center),
-               Text('80 ',
+               Text(operations[index].ConfirmedQty,
                    style: Theme.of(context)
                        .textTheme
                        .titleSmall
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.medium,
-                       fontSize: FontSize.s13),
+                       fontWeight: FontWeightManager.regular,
+                       fontSize: FontSize.s15_25),
                    textAlign: TextAlign.center),
-               Text('10 ',
+               Text(operations[index].BalancedQty,
                    style: Theme.of(context)
                        .textTheme
                        .titleSmall
                        ?.copyWith(
                        fontFamily: FontConstants.fontFamily2,
                        color: ColorManager.black,
-                       fontWeight: FontWeightManager.medium,
-                       fontSize: FontSize.s13),
+                       fontWeight: FontWeightManager.regular,
+                       fontSize: FontSize.s15_25),
                    textAlign: TextAlign.center),
+               InkWell(
+                 onTap: (){},
+                 child: Text('Manage',
+                     style: Theme.of(context)
+                         .textTheme
+                         .titleSmall
+                         ?.copyWith(
+                         fontFamily: FontConstants.fontFamily2,
+                         color: ColorManager.faintb,
+                         fontWeight: FontWeightManager.regular,
+                         fontSize: FontSize.s15_25),
+                     textAlign: TextAlign.center),
+               ),
              ],
-             onClick: () {
-               // var kkk = snapshot.data!.toList();
-               // if(dataAcending == false){
-               //   var kkk = data['delete'];
-               //   data = kkk.reversed.toList();
-               // }
-             },
+             onClick: () {},
            );
-      }),
+      });}),
     );
   }
 }

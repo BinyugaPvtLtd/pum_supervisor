@@ -314,7 +314,9 @@ class _EditPopupState extends State<EditPopup> {
                           height: 35,
                           width: 150,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: ColorManager.appbarcolor,
                             ),

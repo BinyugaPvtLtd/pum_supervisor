@@ -20,6 +20,7 @@ dependencies:
   firebase_auth: ^4.9.0
   cloud_firestore: ^4.9.1
   google_fonts: ^5.1.0
+  firebase_storage: ^11.1.0
 
 dev_dependencies:
   flutter_test:
@@ -37,7 +38,7 @@ flutter:
 
   assets:
     - images/
-  #   - images/a_dot_ham.jpeg
+    - assets/sample.json
 
 
   # fonts:
