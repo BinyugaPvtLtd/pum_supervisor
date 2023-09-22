@@ -1,32 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pum_supervisor/resources/color_manager.dart';
-import 'package:pum_supervisor/user_responsive_screen/edit_popup_constant.dart';
+import 'package:pum_supervisor/resources/font_manager.dart';
 
-import '../../resources/font_manager.dart';
+class EditPopup extends StatelessWidget {
+  const EditPopup({super.key});
 
-class EditPopup extends StatefulWidget {
-  const EditPopup({Key? key}) : super(key: key);
-
-  @override
-  State<EditPopup> createState() => _EditPopupState();
-}
-
-class _EditPopupState extends State<EditPopup> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
       child: Material(
         child: Container(
-          color: Colors.white,
-          height: MediaQuery.of(context).size.height / 0.9,
-          width: MediaQuery.of(context).size.width / 1.5,
-          child: ListView(
-              children:[ Padding(
-                padding: const EdgeInsets.all(27),
-                child: Column(
+          color: ColorManager.white,
+          height: MediaQuery.of(context).size.height / 2.5,
+          width: MediaQuery.of(context).size.width / 2,
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: ListView(
+                children: [Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ///row 1
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -73,19 +66,24 @@ class _EditPopupState extends State<EditPopup> {
                                 height: MediaQuery.of(context).size.height / 18,
                                 width: MediaQuery.of(context).size.width / 15,
                                 child: TextField(
+                                  textAlignVertical: TextAlignVertical.center,
+                                  style: TextStyle(fontSize: MediaQuery.of(context).size.width / 90,
+                                      fontFamily: FontConstants.fontFamily2,
+                                      fontWeight: FontWeightManager.semoBold,
+                                      color: ColorManager.black),
                                   decoration: InputDecoration(
                                       labelText: '',
                                       // Set border for enabled state (default)
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
                                             width: 1, color: Colors.black),
-                                        borderRadius: BorderRadius.circular(15),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
                                       // Set border for focused state
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
                                             width: 1, color: Colors.red),
-                                        borderRadius: BorderRadius.circular(15),
+                                        borderRadius: BorderRadius.circular(10),
                                       )),
                                 ),
                               ),
@@ -108,19 +106,24 @@ class _EditPopupState extends State<EditPopup> {
                                 height: MediaQuery.of(context).size.height / 18,
                                 width: MediaQuery.of(context).size.width / 15,
                                 child: TextField(
+                                  textAlignVertical: TextAlignVertical.center,
+                                  style: TextStyle(fontSize: MediaQuery.of(context).size.width / 90,
+                                      fontFamily: FontConstants.fontFamily2,
+                                      fontWeight: FontWeightManager.semoBold,
+                                      color: ColorManager.black),
                                   decoration: InputDecoration(
                                       labelText: '',
                                       // Set border for enabled state (default)
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
                                             width: 1, color: Colors.black),
-                                        borderRadius: BorderRadius.circular(15),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
                                       // Set border for focused state
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
                                             width: 1, color: Colors.red),
-                                        borderRadius: BorderRadius.circular(15),
+                                        borderRadius: BorderRadius.circular(10),
                                       )),
                                 ),
                               ),
@@ -143,156 +146,32 @@ class _EditPopupState extends State<EditPopup> {
                                 height: MediaQuery.of(context).size.height / 18,
                                 width: MediaQuery.of(context).size.width / 15,
                                 child: TextField(
+                                  textAlignVertical: TextAlignVertical.center,
+                                  style: TextStyle(fontSize: MediaQuery.of(context).size.width / 90,
+                                  fontFamily: FontConstants.fontFamily2,
+                                  fontWeight: FontWeightManager.semoBold,
+                                  color: ColorManager.black),
                                   decoration: InputDecoration(
                                       labelText: '',
                                       // Set border for enabled state (default)
                                       enabledBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
                                             width: 1, color: Colors.black),
-                                        borderRadius: BorderRadius.circular(15),
+                                        borderRadius: BorderRadius.circular(10),
                                       ),
                                       // Set border for focused state
                                       focusedBorder: OutlineInputBorder(
                                         borderSide: const BorderSide(
                                             width: 1, color: Colors.red),
-                                        borderRadius: BorderRadius.circular(15),
+                                        borderRadius: BorderRadius.circular(10),
                                       )),
                                 ),
                               ),
                             ],
                           ),
                         ],
-                      ),
-                    ),
-                    SizedBox(height: MediaQuery.of(context).size.height / 8),
-                    Padding(
-                      padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width/50),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        //crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Activities",
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                                fontFamily: FontConstants.fontFamily2,
-                                color: ColorManager.black,
-                                fontWeight: FontWeightManager.bold,
-                                fontSize: MediaQuery.of(context).size.width/90),
-                          ),
-                          SizedBox(width: MediaQuery.of(context).size.width / 7),
-                          Text(
-                            "Downtime Code",
-                            style: TextStyle(
-                                fontFamily: FontConstants.fontFamily2,
-                                color: ColorManager.black,
-                                fontWeight: FontWeightManager.bold,
-                                fontSize: MediaQuery.of(context).size.width/90),
-                          ),
-                          SizedBox(width: MediaQuery.of(context).size.width / 7),
-                          Text(
-                            "Downtime",
-                            style: TextStyle(
-                                fontFamily: FontConstants.fontFamily2,
-                                color: ColorManager.black,
-                                fontWeight: FontWeightManager.bold,
-                                fontSize: MediaQuery.of(context).size.width/90),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 10),
-
-                    CustomRowWidget(
-                      labelText1: 'Process     ',
-                      textController1: TextEditingController(),
-                      labelText2: 'Downtime code 1',
-                      dropdownValue: 'Option 1',
-                      onDropdownChanged: (String? newValue) {
-                        print('Dropdown value changed to: $newValue');
-                      },
-                      labelText3: 'Downtime  1',
-                      textController2: TextEditingController(),
-                    ),
-                    CustomRowWidget(
-                      labelText1: 'Contract    \nWelder  ',
-                      textController1: TextEditingController(),
-                      labelText2: 'Downtime code 2',
-                      dropdownValue: 'Option 1',
-                      onDropdownChanged: (String? newValue) {
-                        print('Dropdown value changed to: $newValue');
-                      },
-                      labelText3: 'Downtime  2',
-                      textController2: TextEditingController(),
-                    ),
-
-                    CustomRowWidget(
-                      labelText1: 'Helper        ',
-                      textController1: TextEditingController(),
-                      labelText2: 'Downtime code 3',
-                      dropdownValue: 'Option 1',
-                      onDropdownChanged: (String? newValue) {
-                        print('Dropdown value changed to: $newValue');
-                      },
-                      labelText3: 'Downtime  3',
-                      textController2: TextEditingController(),
-                    ),
-                    CustomRowWidget(
-                      labelText1: 'Permanent',
-                      textController1: TextEditingController(),
-                      labelText2: 'Downtime code 4',
-                      dropdownValue: 'Option 1',
-                      onDropdownChanged: (String? newValue) {
-                        print('Dropdown value changed to: $newValue');
-                      },
-                      labelText3: 'Downtime  4',
-                      textController2: TextEditingController(),
-                    ),
-                    CustomRowWidget(
-                      labelText1: 'Piece Rate',
-                      textController1: TextEditingController(),
-                      labelText2: 'Downtime code 5',
-                      dropdownValue: 'Option 1',
-                      onDropdownChanged: (String? newValue) {
-                        print('Dropdown value changed to: $newValue');
-                      },
-                      labelText3: 'Downtime  5',
-                      textController2: TextEditingController(),
-                    ),
-
-                    Padding(
-                      padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width/48),
-                      child: Row(
-                        children: [
-                          Text('Argon Gas',style: TextStyle(
-                              fontSize: MediaQuery.of(context).size.width/100,
-                              color: ColorManager.grey),),
-                          SizedBox(width: MediaQuery.of(context).size.width / 50),
-                          Container(
-                            height: MediaQuery.of(context).size.height / 20,
-                            width: MediaQuery.of(context).size.width / 10,
-                            child: TextField(
-                              controller: TextEditingController(),
-                              decoration: InputDecoration(
-                                  labelText: '',
-                                  // Set border for enabled state (default)
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                    const BorderSide(width: 1, color: Colors.black),
-                                    //borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  // Set border for focused state
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide:
-                                    const BorderSide(width: 1, color: Colors.red),
-                                    //borderRadius: BorderRadius.circular(15),
-                                  )),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 10),
+                      ),),
+                    SizedBox(height: MediaQuery.of(context).size.height / 9,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -306,18 +185,18 @@ class _EditPopupState extends State<EditPopup> {
                                 color: ColorManager.appbarcolor,
                                 fontFamily: FontConstants.fontFamily2,
                                 fontWeight: FontWeightManager.bold,
-                                fontSize: FontSize.s16),
+                                fontSize: MediaQuery.of(context).size.width / 90),
                           ),
                         ),
                         SizedBox(width: 20),
                         SizedBox(
-                          height: 35,
-                          width: 150,
-                          child: ElevatedButton(
+                          height: MediaQuery.of(context).size.height / 20,
+                          width: MediaQuery.of(context).size.width / 10,
+                          child: TextButton(
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            style: ElevatedButton.styleFrom(
+                            style: TextButton.styleFrom(
                               backgroundColor: ColorManager.appbarcolor,
                             ),
                             child: Text(
@@ -326,7 +205,7 @@ class _EditPopupState extends State<EditPopup> {
                                   fontFamily: FontConstants.fontFamily2,
                                   color: ColorManager.white,
                                   fontWeight: FontWeightManager.bold,
-                                  fontSize: FontSize.s15),
+                                  fontSize: MediaQuery.of(context).size.width / 90),
                             ),
                           ),
                         ),
@@ -334,10 +213,11 @@ class _EditPopupState extends State<EditPopup> {
                     )
                   ],
                 ),
-              ),
-              ]),
+                ]),
+          ),
         ),
       ),
+
     );
   }
 }

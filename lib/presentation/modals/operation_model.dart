@@ -1,9 +1,6 @@
 class OperationModel{
   final bool confirm ;
    bool check;
-  final String edit;
-  final String cancle;
-  final String Message;
   final String Status;
   final String OrderNo;
   final String Operation;
@@ -17,9 +14,6 @@ class OperationModel{
   final String BalancedQty;
   OperationModel({required this.confirm,
   required this.check,
-  required this.edit,
-  required this.cancle,
-  required this.Message,
   required this.Status,
   required this.OrderNo,
   required this.Operation,

@@ -8,6 +8,7 @@ import 'package:pum_supervisor/constant/table_card_widget.dart';
 import 'package:pum_supervisor/constant/table_heading_widget.dart';
 import 'package:pum_supervisor/presentation/modals/operation_model.dart';
 import 'package:pum_supervisor/presentation/popups/edit_popup.dart';
+import 'package:pum_supervisor/presentation/popups/manage_popup.dart';
 import 'package:pum_supervisor/presentation/popups/success_popup.dart';
 import 'package:pum_supervisor/resources/color_manager.dart';
 import 'package:pum_supervisor/resources/font_manager.dart';
@@ -262,9 +263,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
     data1?.forEach((element) {print(element["dbid"]);
     operations.add(OperationModel(confirm: element["confirm"],
         check: element["check"],
-        edit: element["edit"],
-        cancle: element["edit"],
-        Message: element["Message"],
         Status: element["Status"],
         OrderNo: element["OrderNo"],
         Operation: element["Operation"],
@@ -293,11 +291,33 @@ class _DashboardScreenState extends State<DashboardScreen> {
                        operations[index].check = operations[index].check ? false : true;
                      });
                    }),
-               InkWell(
-                 onTap: (){
-                   showDialog(context: context, builder: (_)=>EditPopup());
-                 },
-                 child: Text(operations[index].edit,
+               TextButton(onPressed: (){
+                 showDialog(context: context, builder: (_)=> const EditPopup());
+               }, child: Text("Edit",style: Theme.of(context)
+                   .textTheme
+                   .titleSmall
+                   ?.copyWith(
+                   fontFamily: FontConstants.fontFamily2,
+                   color: ColorManager.faintb,
+                   fontWeight: FontWeightManager.bold,
+                   fontSize: FontSize.s15_25),
+                   textAlign: TextAlign.center)),
+               TextButton(
+                 onPressed: () {  },
+                 child: Text("Cancel",
+                     style: Theme.of(context)
+                         .textTheme
+                         .titleSmall
+                         ?.copyWith(
+                         fontFamily: FontConstants.fontFamily2,
+                         color: ColorManager.red,
+                         fontWeight: FontWeightManager.bold,
+                         fontSize: FontSize.s15_25),
+                     textAlign: TextAlign.center),
+               ),
+               TextButton(
+                 onPressed: () { showDialog(context: context, builder: (_)=>SuccessPopup()); },
+                 child: Text("View",
                      style: Theme.of(context)
                          .textTheme
                          .titleSmall
@@ -305,31 +325,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                          fontFamily: FontConstants.fontFamily2,
                          color: ColorManager.faintb,
                          fontWeight: FontWeightManager.bold,
-                         fontSize: FontSize.s15_25),
-                     textAlign: TextAlign.center),
-               ),
-               Text(operations[index].cancle,
-                   style: Theme.of(context)
-                       .textTheme
-                       .titleSmall
-                       ?.copyWith(
-                       fontFamily: FontConstants.fontFamily2,
-                       color: ColorManager.red,
-                       fontWeight: FontWeightManager.medium,
-                       fontSize: FontSize.s15_25),
-                   textAlign: TextAlign.center),
-               InkWell(
-                 onTap: (){
-                   showDialog(context: context, builder: (_)=>SuccessPopup());
-                 },
-                 child: Text(operations[index].Message,
-                     style: Theme.of(context)
-                         .textTheme
-                         .titleSmall
-                         ?.copyWith(
-                         fontFamily: FontConstants.fontFamily2,
-                         color: ColorManager.faintb,
-                         fontWeight: FontWeightManager.medium,
                          fontSize: FontSize.s15_25),
                      textAlign: TextAlign.center),
                ),
@@ -443,9 +438,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                        fontWeight: FontWeightManager.regular,
                        fontSize: FontSize.s15_25),
                    textAlign: TextAlign.center),
-               InkWell(
-                 onTap: (){},
+               TextButton(
+                 onPressed: () { showDialog(context: context, builder: (_)=>ManagePopup());},
                  child: Text('Manage',
+                     textAlign: TextAlign.start,
                      style: Theme.of(context)
                          .textTheme
                          .titleSmall
@@ -453,8 +449,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                          fontFamily: FontConstants.fontFamily2,
                          color: ColorManager.faintb,
                          fontWeight: FontWeightManager.regular,
-                         fontSize: FontSize.s15_25),
-                     textAlign: TextAlign.center),
+                         fontSize: FontSize.s15_25,)),
                ),
              ],
              onClick: () {},
