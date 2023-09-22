@@ -54,7 +54,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                     hint: Text("1234456678899",style: TextStyle(fontFamily: FontConstants.fontFamily2,
                         fontWeight: FontWeightManager.bold,
                         color: ColorManager.faintb,
-                        fontSize: MediaQuery.of(context).size.width / 80),),
+                        fontSize: MediaQuery.of(context).size.width / 100),),
                     value: valueChoose,
                     underline: SizedBox(),
                     isExpanded: true,
@@ -69,7 +69,7 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
                           fontFamily: FontConstants.fontFamily2,
                           fontWeight: FontWeightManager.bold,
                           color: ColorManager.faintb,
-                          fontSize: MediaQuery.of(context).size.width / 80
+                          fontSize: MediaQuery.of(context).size.width / 100
                       ),),);
                     }).toList(),
                   )

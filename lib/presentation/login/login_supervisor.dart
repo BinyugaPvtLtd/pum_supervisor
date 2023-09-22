@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pum_supervisor/presentation/dashboard/add_order_screen.dart';
 import 'package:pum_supervisor/presentation/dashboard/dashboardscreen.dart';
 import '../../resources/color_manager.dart';
 import '../../resources/font_manager.dart';
@@ -16,6 +17,64 @@ class LoginScreenSupervisor extends StatefulWidget {
 }
 
 class _LoginScreenSupervisorState extends State<LoginScreenSupervisor> {
+
+  Future<void> _signIn(BuildContext context) async {
+    String email = _emailController.text.trim();
+    String password = _passwordController.text;
+
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      // Fetch user role and navigate to the respective portal
+      String userRole = await getUserRole(userCredential.user!.uid);
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => userRole == 'Supervisor' ? AddOrderScreen() : DashboardScreen(),
+        ),
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided.');
+      }
+    }
+  }
+
+
+
+  Future<String> getUserRole(String uid) async {
+    try {
+      DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('users').doc(uid).get();
+      return userDoc['role'];
+    } catch (e) {
+      print('Error fetching user role: $e');
+      return '';
+    }
+  }
+
+  // Future<String> checkUserRoleByEmail(String email) async {
+  //   try {
+  //     QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+  //         .collection('users')
+  //         .where('email', isEqualTo: email)
+  //         .get();
+  //
+  //     if (querySnapshot.docs.isNotEmpty) {
+  //       String role = querySnapshot.docs[0]['role'];
+  //       return role;
+  //     }
+  //     return "guest"; // Default role for users not found in the 'users' collection
+  //   } catch (e) {
+  //     print("Error checking user role by email: $e");
+  //     return "guest";
+  //   }
+  // }
+
   final _formKey = GlobalKey<FormState>();
   FocusNode fieldOne = FocusNode();
   FocusNode fieldTow = FocusNode();
@@ -217,30 +276,51 @@ class _LoginScreenSupervisorState extends State<LoginScreenSupervisor> {
                             focusNode: fieldTow,
                             onPressed: () async{
                               if (_formKey.currentState!.validate() ){
+                                await _signIn(context);
                                 // loginData.setBool('login', false);
-                                try{
-                                  await FirebaseFirestore.instance.collection("supervisor").doc("h7JmwLlmVASot7Z59V7a").snapshots().forEach((element) async {
-                                    if(element.data()?['email'] == _emailController.text &&
-                                        element.data()?['password'] == _passwordController.text){
-                                      Navigator.push(context, MaterialPageRoute(builder: (context)=> DashboardScreen()));
-                                    }else{
-                                      showDialog(
-                                          context: context,
-                                          builder: (context) {
-                                            return const AlertDialog(
-                                              title: Center(child: Text(AppString.error)),
-                                              content: Text(
-                                                'Email or password do not match!',
-                                                textAlign: TextAlign.center,
-                                                maxLines: 1,
-                                              ),
-                                            );
-                                          });
-                                    }
-                                  });}catch(e){
-                                  print(e);
-                                }
 
+                                // UserCredential authResult = await FirebaseAuth.instance.signInWithEmailAndPassword(
+                                //   email: _emailController.text,
+                                //   password: _passwordController.text,
+                                // );
+                                // String userEmail = authResult.user!.email!;
+                                // String userRole = await checkUserRoleByEmail(userEmail);
+                                //
+                                // if (userRole == "admin") {
+                                //   print('Admin screen');
+                                //   // Navigator.push(context, MaterialPageRoute(builder: (context)=>D))
+                                // } else if (userRole == "supervisor") {
+                                //   Navigator.push(context, MaterialPageRoute(builder: (context)=>DashboardScreen()));
+                                //   // Display supervisor portal UI
+                                // } else if (userRole == "operator") {
+                                //   print('Operator screen');
+                                //   // Display operator portal UI
+                                // } else {
+                                //   print('default screen');
+                                //   // Display a message or redirect to a restricted access page
+                                // }
+                              // try{
+                                //   await FirebaseFirestore.instance.collection("users").doc("h7JmwLlmVASot7Z59V7a").snapshots().forEach((element) async {
+                                //     if(element.data()?['email'] == _emailController.text &&
+                                //         element.data()?['password'] == _passwordController.text){
+                                //       Navigator.push(context, MaterialPageRoute(builder: (context)=> DashboardScreen()));
+                                //     }else{
+                                //       showDialog(
+                                //           context: context,
+                                //           builder: (context) {
+                                //             return const AlertDialog(
+                                //               title: Center(child: Text(AppString.error)),
+                                //               content: Text(
+                                //                 'Email or password do not match!',
+                                //                 textAlign: TextAlign.center,
+                                //                 maxLines: 1,
+                                //               ),
+                                //             );
+                                //           });
+                                //     }
+                                //   });}catch(e){
+                                //   print(e);
+                                // }
                               }
                             },
                             style: ElevatedButton.styleFrom(

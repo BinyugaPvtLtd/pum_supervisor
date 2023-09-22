@@ -70,7 +70,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     hintText: 'From',
                     hintStyle: TextStyle(
                       fontFamily: FontConstants.fontFamily2,
-                      fontSize: MediaQuery.of(context).size.width / 80,
+                      fontSize: MediaQuery.of(context).size.width / 100,
                       fontWeight: FontWeightManager.bold,
                       color: ColorManager.black,
                     ),
@@ -82,7 +82,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   style: TextStyle(
                       fontFamily: FontConstants.fontFamily2,
                       fontWeight: FontWeightManager.bold,
-                      fontSize: MediaQuery.of(context).size.width / 80,
+                      fontSize: MediaQuery.of(context).size.width / 100,
                       color: ColorManager.black),
                   readOnly: true,
                   onTap: () async {
@@ -117,7 +117,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           fontFamily: FontConstants.fontFamily2,
                           fontWeight: FontWeightManager.bold,
                           color: ColorManager.black,
-                          fontSize: MediaQuery.of(context).size.width / 80),
+                          fontSize: MediaQuery.of(context).size.width / 100),
                     ),
                     value: valueChoose,
                     underline: SizedBox(),
@@ -142,7 +142,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 fontWeight: FontWeightManager.bold,
                                 color: ColorManager.black,
                                 fontSize:
-                                    MediaQuery.of(context).size.width / 80),
+                                    MediaQuery.of(context).size.width / 100),
                           ),
                         ),
                       );
@@ -172,155 +172,160 @@ class _DashboardScreenState extends State<DashboardScreen> {
       tableHeading: SingleChildScrollView(
         controller: controller,
         scrollDirection: Axis.horizontal,
-        child: TableHeadingWidget(fields: [
-          Checkbox(
-              value: checkValue,
-              activeColor: Colors.blueAccent,
-              side: BorderSide(color: ColorManager.white, width: 3),
-              onChanged: (val) {
-                setState(() {
-                  checkValue = val!;
-                });
-              }),
-          SizedBox(
-            width: 100,
-            height: 10,
-          ),
-          SizedBox(
-            width: 100,
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Message",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.inter(
-                  color: ColorManager.white,
-                  fontWeight: FontWeightManager.bold,
-                  fontSize: 13,
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Status",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.inter(
-                  color: ColorManager.white,
-                  fontWeight: FontWeightManager.bold,
-                  fontSize: 13,
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Order No",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.inter(
-                  color: ColorManager.white,
-                  fontWeight: FontWeightManager.bold,
-                  fontSize: 13,
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Operation",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.inter(
-                  color: ColorManager.white,
-                  fontWeight: FontWeightManager.bold,
-                  fontSize: 13,
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Material No.",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.inter(
-                  color: ColorManager.white,
-                  fontWeight: FontWeightManager.bold,
-                  fontSize: 13,
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Description",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.inter(
-                  color: ColorManager.white,
-                  fontWeight: FontWeightManager.bold,
-                  fontSize: 13,
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Order Qty",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.inter(
-                  color: ColorManager.white,
-                  fontWeight: FontWeightManager.bold,
-                  fontSize: 13,
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Pending Qty",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.inter(
-                  color: ColorManager.white,
-                  fontWeight: FontWeightManager.bold,
-                  fontSize: 13,
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Rejection",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.inter(
-                  color: ColorManager.white,
-                  fontWeight: FontWeightManager.bold,
-                  fontSize: 13,
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Rework",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.inter(
-                  color: ColorManager.white,
-                  fontWeight: FontWeightManager.bold,
-                  fontSize: 13,
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Confirmed Qty",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.inter(
-                  color: ColorManager.white,
-                  fontWeight: FontWeightManager.bold,
-                  fontSize: 13,
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Balanced Qty",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.inter(
-                  color: ColorManager.white,
-                  fontWeight: FontWeightManager.bold,
-                  fontSize: 13,
-                )),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Description",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.inter(
-                  color: ColorManager.white,
-                  fontWeight: FontWeightManager.bold,
-                  fontSize: 13,
-                )),
-          ),
-        ]),
+        child: Scrollbar(
+          thumbVisibility: true,
+          trackVisibility: true,
+          controller: controller,
+          child: TableHeadingWidget(fields: [
+            Checkbox(
+                value: checkValue,
+                activeColor: Colors.blueAccent,
+                side: BorderSide(color: ColorManager.white, width: 3),
+                onChanged: (val) {
+                  setState(() {
+                    checkValue = val!;
+                  });
+                }),
+            SizedBox(
+              width: 100,
+              height: 10,
+            ),
+            SizedBox(
+              width: 100,
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Message",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    color: ColorManager.white,
+                    fontWeight: FontWeightManager.bold,
+                    fontSize: 13,
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Status",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    color: ColorManager.white,
+                    fontWeight: FontWeightManager.bold,
+                    fontSize: 13,
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Order No",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    color: ColorManager.white,
+                    fontWeight: FontWeightManager.bold,
+                    fontSize: 13,
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Operation",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    color: ColorManager.white,
+                    fontWeight: FontWeightManager.bold,
+                    fontSize: 13,
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Material No.",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    color: ColorManager.white,
+                    fontWeight: FontWeightManager.bold,
+                    fontSize: 13,
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Description",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    color: ColorManager.white,
+                    fontWeight: FontWeightManager.bold,
+                    fontSize: 13,
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Order Qty",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    color: ColorManager.white,
+                    fontWeight: FontWeightManager.bold,
+                    fontSize: 13,
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Pending Qty",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    color: ColorManager.white,
+                    fontWeight: FontWeightManager.bold,
+                    fontSize: 13,
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Rejection",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    color: ColorManager.white,
+                    fontWeight: FontWeightManager.bold,
+                    fontSize: 13,
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Rework",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    color: ColorManager.white,
+                    fontWeight: FontWeightManager.bold,
+                    fontSize: 13,
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Confirmed Qty",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    color: ColorManager.white,
+                    fontWeight: FontWeightManager.bold,
+                    fontSize: 13,
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Balanced Qty",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    color: ColorManager.white,
+                    fontWeight: FontWeightManager.bold,
+                    fontSize: 13,
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Description",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                    color: ColorManager.white,
+                    fontWeight: FontWeightManager.bold,
+                    fontSize: 13,
+                  )),
+            ),
+          ]),
+        ),
       ),
       table: FutureBuilder(
           future:
@@ -351,7 +356,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               controller: controller,
               child: Container(
                 width: MediaQuery.of(context).size.width + 200,
-                height: MediaQuery.of(context).size.height - 300,
+                height: MediaQuery.of(context).size.height - 250,
                 child: Scrollbar(
                   thumbVisibility: true,
                   trackVisibility: true,
@@ -389,7 +394,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                                 FontConstants.fontFamily2,
                                             color: ColorManager.faintb,
                                             fontWeight: FontWeightManager.bold,
-                                            fontSize: FontSize.s15_25),
+                                            fontSize: FontSize.s13),
                                     textAlign: TextAlign.center)),
                             TextButton(
                               onPressed: () {},
@@ -401,7 +406,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                           fontFamily: FontConstants.fontFamily2,
                                           color: ColorManager.red,
                                           fontWeight: FontWeightManager.bold,
-                                          fontSize: FontSize.s15_25),
+                                          fontSize: FontSize.s13),
                                   textAlign: TextAlign.center),
                             ),
                             TextButton(
@@ -418,7 +423,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                           fontFamily: FontConstants.fontFamily2,
                                           color: ColorManager.faintb,
                                           fontWeight: FontWeightManager.bold,
-                                          fontSize: FontSize.s15_25),
+                                          fontSize: FontSize.s13),
                                   textAlign: TextAlign.center),
                             ),
                             Text(operations[index].Status,
@@ -429,7 +434,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         fontFamily: FontConstants.fontFamily2,
                                         color: ColorManager.black,
                                         fontWeight: FontWeightManager.regular,
-                                        fontSize: FontSize.s15_25),
+                                        fontSize: FontSize.s13),
                                 textAlign: TextAlign.center),
                             Text(operations[index].OrderNo,
                                 style: Theme.of(context)
@@ -439,7 +444,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         fontFamily: FontConstants.fontFamily2,
                                         color: ColorManager.black,
                                         fontWeight: FontWeightManager.regular,
-                                        fontSize: FontSize.s15_25),
+                                        fontSize: FontSize.s13),
                                 textAlign: TextAlign.center),
                             Text(operations[index].Operation,
                                 style: Theme.of(context)
@@ -449,7 +454,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         fontFamily: FontConstants.fontFamily2,
                                         color: ColorManager.black,
                                         fontWeight: FontWeightManager.regular,
-                                        fontSize: FontSize.s15_25),
+                                        fontSize: FontSize.s13),
                                 textAlign: TextAlign.center),
                             Text(operations[index].MaterialNo,
                                 style: Theme.of(context)
@@ -459,7 +464,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         fontFamily: FontConstants.fontFamily2,
                                         color: ColorManager.black,
                                         fontWeight: FontWeightManager.regular,
-                                        fontSize: FontSize.s15_25),
+                                        fontSize: FontSize.s13),
                                 textAlign: TextAlign.center),
                             Text(operations[index].Description,
                                 style: Theme.of(context)
@@ -469,7 +474,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         fontFamily: FontConstants.fontFamily2,
                                         color: ColorManager.black,
                                         fontWeight: FontWeightManager.regular,
-                                        fontSize: FontSize.s15_25),
+                                        fontSize: FontSize.s13),
                                 textAlign: TextAlign.center),
                             Text(operations[index].OrderQty,
                                 style: Theme.of(context)
@@ -479,7 +484,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         fontFamily: FontConstants.fontFamily2,
                                         color: ColorManager.black,
                                         fontWeight: FontWeightManager.regular,
-                                        fontSize: FontSize.s15_25),
+                                        fontSize: FontSize.s13),
                                 textAlign: TextAlign.center),
                             Text(operations[index].PendingQty,
                                 style: Theme.of(context)
@@ -489,7 +494,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         fontFamily: FontConstants.fontFamily2,
                                         color: ColorManager.black,
                                         fontWeight: FontWeightManager.regular,
-                                        fontSize: FontSize.s15_25),
+                                        fontSize: FontSize.s13),
                                 textAlign: TextAlign.center),
                             Text(operations[index].Rejection,
                                 style: Theme.of(context)
@@ -499,7 +504,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         fontFamily: FontConstants.fontFamily2,
                                         color: ColorManager.red,
                                         fontWeight: FontWeightManager.regular,
-                                        fontSize: FontSize.s15_25),
+                                        fontSize: FontSize.s13),
                                 textAlign: TextAlign.center),
                             Text(operations[index].Rework,
                                 style: Theme.of(context)
@@ -509,7 +514,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         fontFamily: FontConstants.fontFamily2,
                                         color: ColorManager.black,
                                         fontWeight: FontWeightManager.regular,
-                                        fontSize: FontSize.s15_25),
+                                        fontSize: FontSize.s13),
                                 textAlign: TextAlign.center),
                             Text(operations[index].ConfirmedQty,
                                 style: Theme.of(context)
@@ -519,7 +524,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         fontFamily: FontConstants.fontFamily2,
                                         color: ColorManager.black,
                                         fontWeight: FontWeightManager.regular,
-                                        fontSize: FontSize.s15_25),
+                                        fontSize: FontSize.s13),
                                 textAlign: TextAlign.center),
                             Text(operations[index].BalancedQty,
                                 style: Theme.of(context)
@@ -529,7 +534,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         fontFamily: FontConstants.fontFamily2,
                                         color: ColorManager.black,
                                         fontWeight: FontWeightManager.regular,
-                                        fontSize: FontSize.s15_25),
+                                        fontSize: FontSize.s13),
                                 textAlign: TextAlign.center),
                             TextButton(
                               onPressed: () {
@@ -546,7 +551,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         fontFamily: FontConstants.fontFamily2,
                                         color: ColorManager.faintb,
                                         fontWeight: FontWeightManager.regular,
-                                        fontSize: FontSize.s15_25,
+                                        fontSize: FontSize.s13,
                                       )),
                             ),
                           ],

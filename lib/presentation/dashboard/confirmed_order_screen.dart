@@ -20,6 +20,7 @@ class ConfirmedOrder extends StatefulWidget {
 
 class _ConfirmedOrderState extends State<ConfirmedOrder> {
   TextEditingController datecontroller = TextEditingController();
+  final ScrollController scrollcontroller = ScrollController();
   List ListItems =["SHIFT 1", "SHIFT 2", "SHIFT 3", "SHIFT 4"];
   bool checkValue = false;
   String? valueChoose;
@@ -53,14 +54,14 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
                   border: InputBorder.none,
                   hintText: 'From',
                   hintStyle: TextStyle(fontFamily: FontConstants.fontFamily2,
-                    fontSize: MediaQuery.of(context).size.width / 80,
+                    fontSize: MediaQuery.of(context).size.width / 100,
                     fontWeight: FontWeightManager.bold,
                     color: ColorManager.black,),
                   suffixIcon:  Icon(Icons.keyboard_arrow_down_outlined),
                 ),
                 style: TextStyle(fontFamily: FontConstants.fontFamily2,
                     fontWeight: FontWeightManager.bold,
-                    fontSize: MediaQuery.of(context).size.width / 80,
+                    fontSize: MediaQuery.of(context).size.width / 100,
                     color: ColorManager.black),
                 readOnly: true,
                 onTap: () async {
@@ -92,7 +93,7 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
                   hint: Text(ListItems[0],style: TextStyle(fontFamily: FontConstants.fontFamily2,
                       fontWeight: FontWeightManager.bold,
                       color: ColorManager.black,
-                      fontSize: MediaQuery.of(context).size.width / 80),),
+                      fontSize: MediaQuery.of(context).size.width / 100),),
                   value: valueChoose,
                   underline: SizedBox(),
                   isExpanded: true,
@@ -108,7 +109,7 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
                           fontFamily: FontConstants.fontFamily2,
                           fontWeight: FontWeightManager.bold,
                           color: ColorManager.black,
-                          fontSize: MediaQuery.of(context).size.width / 80
+                          fontSize: MediaQuery.of(context).size.width / 100
                       ),),
                     ),);
                   }).toList(),
@@ -121,270 +122,294 @@ class _ConfirmedOrderState extends State<ConfirmedOrder> {
       tableHeadingIsThere: true,
       heading: AppString.confirmorder,
       onBack: (){},
-      tableHeading: TableHeadingWidget(fields: [
-        Text(" ",
-            textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-              color: ColorManager.white,
-              fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
-            )),
-        Text(" ",
-            textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-              color: ColorManager.white,
-              fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
-            )),
+      tableHeading: SingleChildScrollView(
+        controller: scrollcontroller,
+        scrollDirection: Axis.horizontal,
+        child: Scrollbar(
+          thumbVisibility: true,
+          trackVisibility: true,
+          controller: scrollcontroller,
+          child: TableHeadingWidget(fields: [
+            SizedBox(
+              width: 100,
+              height: 10,
+            ),
+            SizedBox(
+              width: 100,
+              height: 10,
+            ),
 
-        Text("Message",
-            textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-              color: ColorManager.white,
-              fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
-            )),
-        Text("Status",
-            textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-              color: ColorManager.white,
-              fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
-            )),
-        Text("Order No",
-            textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-              color: ColorManager.white,
-              fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
-            )),
-        Text("Operation",
-            textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-              color: ColorManager.white,
-              fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
-            )),
-        Text("Material No.",
-            textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-              color: ColorManager.white,
-              fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
-            )),
-        Text("Description",
-            textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-              color: ColorManager.white,
-              fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
-            )),
-        Text("Order Qty",
-            textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-              color: ColorManager.white,
-              fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
-            )),
-        Text("Pending Qty",
-            textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-              color: ColorManager.white,
-              fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
-            )),
-        Text("Rejection",
-            textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-              color: ColorManager.white,
-              fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
-            )),
-        Text("Rework",
-            textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-              color: ColorManager.white,
-              fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
-            )),
-        Text("Confirmed Qty",
-            textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-              color: ColorManager.white,
-              fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
-            )),
-        Text("Balanced Qty",
-            textAlign: TextAlign.center,
-            style: GoogleFonts.inter(
-              color: ColorManager.white,
-              fontWeight: FontWeightManager.bold,
-              fontSize: MediaQuery.of(context).size.width/100,
-            )),
+            Text("Message",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  color: ColorManager.white,
+                  fontWeight: FontWeightManager.bold,
+                  fontSize: 13,
+                )),
+            Text("Status",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  color: ColorManager.white,
+                  fontWeight: FontWeightManager.bold,
+                  fontSize: 13,
+                )),
+            Text("Order No",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  color: ColorManager.white,
+                  fontWeight: FontWeightManager.bold,
+                  fontSize: 13,
+                )),
+            Text("Operation",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  color: ColorManager.white,
+                  fontWeight: FontWeightManager.bold,
+                  fontSize: 13,
+                )),
+            Text("Material No.",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  color: ColorManager.white,
+                  fontWeight: FontWeightManager.bold,
+                  fontSize: 13,
+                )),
+            Text("Description",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  color: ColorManager.white,
+                  fontWeight: FontWeightManager.bold,
+                  fontSize: 13,
+                )),
+            Text("Order Qty",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  color: ColorManager.white,
+                  fontWeight: FontWeightManager.bold,
+                  fontSize: 13,
+                )),
+            Text("Pending Qty",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  color: ColorManager.white,
+                  fontWeight: FontWeightManager.bold,
+                  fontSize: 13,
+                )),
+            Text("Rejection",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  color: ColorManager.white,
+                  fontWeight: FontWeightManager.bold,
+                  fontSize: 13,
+                )),
+            Text("Rework",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  color: ColorManager.white,
+                  fontWeight: FontWeightManager.bold,
+                  fontSize: 13,
+                )),
+            Text("Confirmed Qty",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  color: ColorManager.white,
+                  fontWeight: FontWeightManager.bold,
+                  fontSize: 13,
+                )),
+            Text("Balanced Qty",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.inter(
+                  color: ColorManager.white,
+                  fontWeight: FontWeightManager.bold,
+                  fontSize: 13,
+                )),
 
 
-      ]),
-      table: ListView.builder(
-        //scrollDirection: Axis.horizontal,
-        //shrinkWrap: true,
-          itemCount: 5,
-          itemBuilder: (BuildContext context, index){
-            return ConfirmedTabelCardWidget(
-              fields: [
-                Text('Edit',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall
-                        ?.copyWith(
-                        fontFamily: FontConstants.fontFamily2,
-                        color: ColorManager.faintb,
-                        fontWeight: FontWeightManager.semoBold,
-                        fontSize: FontSize.s15),
-                    textAlign: TextAlign.center),
-                Text('Cancel',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall
-                        ?.copyWith(
-                        fontFamily: FontConstants.fontFamily2,
-                        color: ColorManager.red,
-                        fontWeight: FontWeightManager.semoBold,
-                        fontSize: FontSize.s15),
-                    textAlign: TextAlign.center),
-                InkWell(
-                  onTap: (){
-                    showDialog(context: context, builder: (_)=> SuccessPopup());
-                  },
-                  child: Text('View',
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleSmall
-                          ?.copyWith(
-                          fontFamily: FontConstants.fontFamily2,
-                          color: ColorManager.faintb,
-                          fontWeight: FontWeightManager.semoBold,
-                          fontSize: FontSize.s15),
-                      textAlign: TextAlign.center),
-                ),
-                Text('SAPCNF',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall
-                        ?.copyWith(
-                        fontFamily: FontConstants.fontFamily2,
-                        color: ColorManager.black,
-                        fontWeight: FontWeightManager.medium,
-                        fontSize: FontSize.s13),
-                    textAlign: TextAlign.center),
-                Text('100001',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall
-                        ?.copyWith(
-                        fontFamily: FontConstants.fontFamily2,
-                        color: ColorManager.black,
-                        fontWeight: FontWeightManager.medium,
-                        fontSize: FontSize.s13),
-                    textAlign: TextAlign.center),
-                Text('Welding (10)',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall
-                        ?.copyWith(
-                        fontFamily: FontConstants.fontFamily2,
-                        color: ColorManager.black,
-                        fontWeight: FontWeightManager.medium,
-                        fontSize: FontSize.s13),
-                    textAlign: TextAlign.center),
-                Text('8010000010',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall
-                        ?.copyWith(
-                        fontFamily: FontConstants.fontFamily2,
-                        color: ColorManager.black,
-                        fontWeight: FontWeightManager.medium,
-                        fontSize: FontSize.s13),
-                    textAlign: TextAlign.center),
-                Text('BOXER SWING ARM ',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall
-                        ?.copyWith(
-                        fontFamily: FontConstants.fontFamily2,
-                        color: ColorManager.black,
-                        fontWeight: FontWeightManager.medium,
-                        fontSize: FontSize.s13),
-                    textAlign: TextAlign.center),
-                Text('100 ',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall
-                        ?.copyWith(
-                        fontFamily: FontConstants.fontFamily2,
-                        color: ColorManager.black,
-                        fontWeight: FontWeightManager.medium,
-                        fontSize: FontSize.s13),
-                    textAlign: TextAlign.center),
-                Text('100 ',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall
-                        ?.copyWith(
-                        fontFamily: FontConstants.fontFamily2,
-                        color: ColorManager.black,
-                        fontWeight: FontWeightManager.medium,
-                        fontSize: FontSize.s13),
-                    textAlign: TextAlign.center),
-                Text('10 ',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall
-                        ?.copyWith(
-                        fontFamily: FontConstants.fontFamily2,
-                        color: ColorManager.red,
-                        fontWeight: FontWeightManager.medium,
-                        fontSize: FontSize.s13),
-                    textAlign: TextAlign.center),
-                Text('5 ',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall
-                        ?.copyWith(
-                        fontFamily: FontConstants.fontFamily2,
-                        color: ColorManager.black,
-                        fontWeight: FontWeightManager.medium,
-                        fontSize: FontSize.s13),
-                    textAlign: TextAlign.center),
-                Text('80 ',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall
-                        ?.copyWith(
-                        fontFamily: FontConstants.fontFamily2,
-                        color: ColorManager.black,
-                        fontWeight: FontWeightManager.medium,
-                        fontSize: FontSize.s13),
-                    textAlign: TextAlign.center),
-                Text('10 ',
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall
-                        ?.copyWith(
-                        fontFamily: FontConstants.fontFamily2,
-                        color: ColorManager.black,
-                        fontWeight: FontWeightManager.medium,
-                        fontSize: FontSize.s13),
-                    textAlign: TextAlign.center),
-              ],
-              onClick: () {
-                // var kkk = snapshot.data!.toList();
-                // if(dataAcending == false){
-                //   var kkk = data['delete'];
-                //   data = kkk.reversed.toList();
-                // }
-              },
-            );
-          }),);
+          ]),
+        ),
+      ),
+      table: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        controller: scrollcontroller,
+        child: Container(
+          width: MediaQuery.of(context).size.width + 200,
+          height: MediaQuery.of(context).size.height - 250,
+          child: Scrollbar(
+            thumbVisibility: true,
+            trackVisibility: true,
+            controller: scrollcontroller,
+            child: ListView.builder(
+              //scrollDirection: Axis.horizontal,
+              //shrinkWrap: true,
+                itemCount: 5,
+                itemBuilder: (BuildContext context, index){
+                  return ConfirmedTabelCardWidget(
+                    fields: [
+                      TextButton(
+                          onPressed: () { },
+                          child: Text("Edit",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall
+                                  ?.copyWith(
+                                  fontFamily:
+                                  FontConstants.fontFamily2,
+                                  color: ColorManager.faintb,
+                                  fontWeight: FontWeightManager.bold,
+                                  fontSize: FontSize.s13),
+                              textAlign: TextAlign.center)),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text("Cancel",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall
+                                ?.copyWith(
+                                fontFamily: FontConstants.fontFamily2,
+                                color: ColorManager.red,
+                                fontWeight: FontWeightManager.bold,
+                                fontSize: FontSize.s13),
+                            textAlign: TextAlign.center),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (_) => SuccessPopup());
+                        },
+                        child: Text("View",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall
+                                ?.copyWith(
+                                fontFamily: FontConstants.fontFamily2,
+                                color: ColorManager.faintb,
+                                fontWeight: FontWeightManager.bold,
+                                fontSize: FontSize.s13),
+                            textAlign: TextAlign.center),
+                      ),
+                      Text('SAPCNF',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(
+                              fontFamily: FontConstants.fontFamily2,
+                              color: ColorManager.black,
+                              fontWeight: FontWeightManager.medium,
+                              fontSize: FontSize.s13),
+                          textAlign: TextAlign.center),
+                      Text('100001',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(
+                              fontFamily: FontConstants.fontFamily2,
+                              color: ColorManager.black,
+                              fontWeight: FontWeightManager.medium,
+                              fontSize: FontSize.s13),
+                          textAlign: TextAlign.center),
+                      Text('Welding (10)',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(
+                              fontFamily: FontConstants.fontFamily2,
+                              color: ColorManager.black,
+                              fontWeight: FontWeightManager.medium,
+                              fontSize: FontSize.s13),
+                          textAlign: TextAlign.center),
+                      Text('8010000010',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(
+                              fontFamily: FontConstants.fontFamily2,
+                              color: ColorManager.black,
+                              fontWeight: FontWeightManager.medium,
+                              fontSize: FontSize.s13),
+                          textAlign: TextAlign.center),
+                      Text('BOXER SWING ARM ',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(
+                              fontFamily: FontConstants.fontFamily2,
+                              color: ColorManager.black,
+                              fontWeight: FontWeightManager.medium,
+                              fontSize: FontSize.s13),
+                          textAlign: TextAlign.center),
+                      Text('100 ',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(
+                              fontFamily: FontConstants.fontFamily2,
+                              color: ColorManager.black,
+                              fontWeight: FontWeightManager.medium,
+                              fontSize: FontSize.s13),
+                          textAlign: TextAlign.center),
+                      Text('100 ',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(
+                              fontFamily: FontConstants.fontFamily2,
+                              color: ColorManager.black,
+                              fontWeight: FontWeightManager.medium,
+                              fontSize: FontSize.s13),
+                          textAlign: TextAlign.center),
+                      Text('10 ',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(
+                              fontFamily: FontConstants.fontFamily2,
+                              color: ColorManager.red,
+                              fontWeight: FontWeightManager.medium,
+                              fontSize: FontSize.s13),
+                          textAlign: TextAlign.center),
+                      Text('5 ',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(
+                              fontFamily: FontConstants.fontFamily2,
+                              color: ColorManager.black,
+                              fontWeight: FontWeightManager.medium,
+                              fontSize: FontSize.s13),
+                          textAlign: TextAlign.center),
+                      Text('80 ',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(
+                              fontFamily: FontConstants.fontFamily2,
+                              color: ColorManager.black,
+                              fontWeight: FontWeightManager.medium,
+                              fontSize: FontSize.s13),
+                          textAlign: TextAlign.center),
+                      Text('10 ',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall
+                              ?.copyWith(
+                              fontFamily: FontConstants.fontFamily2,
+                              color: ColorManager.black,
+                              fontWeight: FontWeightManager.medium,
+                              fontSize: FontSize.s13),
+                          textAlign: TextAlign.center),
+                    ],
+                    onClick: () {
+                      // var kkk = snapshot.data!.toList();
+                      // if(dataAcending == false){
+                      //   var kkk = data['delete'];
+                      //   data = kkk.reversed.toList();
+                      // }
+                    },
+                  );
+                }),
+          ),
+        ),
+      ),);
   }
 }
