@@ -1,8 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:pum_supervisor/resources/color_manager.dart';
 import 'package:pum_supervisor/resources/value_manager.dart';
-
 
 typedef void OnTap();
 
@@ -19,11 +17,12 @@ class _TableHeadingWidgetState extends State<TableHeadingWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.only(left:AppPadding.p8,right: AppPadding.p8),
+      padding: EdgeInsets.only(left: AppPadding.p8, right: AppPadding.p8),
       child: Container(
-        decoration: BoxDecoration( color: ColorManager.faintb,
+        width: MediaQuery.of(context).size.width + 200,
+        decoration: BoxDecoration(
+            color: ColorManager.faintb,
             borderRadius: BorderRadius.circular(13)),
-
         padding: EdgeInsets.symmetric(horizontal: 0, vertical: 2),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -35,6 +34,3 @@ class _TableHeadingWidgetState extends State<TableHeadingWidget> {
     );
   }
 }
-
-
-

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:pum_supervisor/presentation/dashboard/dashboardscreen.dart';
 import 'package:pum_supervisor/presentation/login/login_supervisor.dart';
 
-
 void main() async {
   // WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -40,7 +39,8 @@ class MyApp extends StatelessWidget {
                         ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                     useMaterial3: true,
                   ),
-                  home:LoginScreenSupervisor());
+                  home: DashboardScreen());
+              //  home: LoginScreenSupervisor());
               //email == null ? LoginScreenWeb() : DashbordScreenview());
               // UserManagemntscreen());
               // );

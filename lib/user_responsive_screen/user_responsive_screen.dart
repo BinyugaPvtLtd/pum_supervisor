@@ -3,18 +3,20 @@ import 'package:pum_supervisor/resources/color_manager.dart';
 import 'package:pum_supervisor/user_responsive_screen/user_enum.dart';
 import 'package:pum_supervisor/user_responsive_screen/user_side_bar.dart';
 
-
 typedef void OnUserClickBack();
+
 class UserResponsiveScreen extends StatelessWidget {
-  UserResponsiveScreen({Key? key,
-    required this.appBarChildren,
-    required this.appBarSpaceChildren,
-    required this.appScreen,
-    required this.tableHeadingIsThere,
-    required this.heading,
-    required this.onBack,
-    required this.table,
-    required this.tableHeading}) : super(key: key);
+  UserResponsiveScreen(
+      {Key? key,
+      required this.appBarChildren,
+      required this.appBarSpaceChildren,
+      required this.appScreen,
+      required this.tableHeadingIsThere,
+      required this.heading,
+      required this.onBack,
+      required this.table,
+      required this.tableHeading})
+      : super(key: key);
   final List<Widget> appBarChildren;
   final List<Widget> appBarSpaceChildren;
   final AppUserScreen appScreen;
@@ -37,44 +39,46 @@ class UserResponsiveScreen extends StatelessWidget {
                   flex: 1,
                   child: Container(
                     //color: Colors.green,
-                   // color: Color(0xff1E56A0),
+                    // color: Color(0xff1E56A0),
                     height: MediaQuery.of(context).size.height,
                     child: ListView(
                       physics: NeverScrollableScrollPhysics(),
                       children: [
                         MediaQuery.of(context).size.width > 780
                             ? Container(
-                          color: ColorManager.white,
-                          child: Padding(
-                            padding: EdgeInsets.all(
-                                MediaQuery.of(context).size.height /
-                                    80),
-                            child: Image.asset(
-                              "images/ummasons_logo.png",
-                              // width: double.minPositive,
-                              // width: MediaQuery.of(context).size.width / 2,
-                            ),
-                          ),
-                        )
-                            : const SizedBox(height: 40,),
+                                color: ColorManager.white,
+                                child: Padding(
+                                  padding: EdgeInsets.all(
+                                      MediaQuery.of(context).size.height / 80),
+                                  child: Image.asset(
+                                    "images/ummasons_logo.png",
+                                    // width: double.minPositive,
+                                    // width: MediaQuery.of(context).size.width / 2,
+                                  ),
+                                ),
+                              )
+                            : const SizedBox(
+                                height: 40,
+                              ),
                         Container(
-                          height:MediaQuery.of(context).size.height- 50,
+                          height: MediaQuery.of(context).size.height - 50,
                           decoration: BoxDecoration(
-                            //color: ColorManager.primary,
-                            //borderRadius: BorderRadius.only(topRight: Radius.circular(10),topLeft: Radius.circular(20))
-                          ),
+                              //color: ColorManager.primary,
+                              //borderRadius: BorderRadius.only(topRight: Radius.circular(10),topLeft: Radius.circular(20))
+                              ),
                           // height: MediaQuery.of(context).size.height - 100,
                           child: UserSideBar(
-                              heading: heading,
-                              //screen: appUserScreen,
-                              onBackButtonTapped: () {
-                                onBack();
-                              }, screen: appScreen,),
+                            heading: heading,
+                            //screen: appUserScreen,
+                            onBackButtonTapped: () {
+                              onBack();
+                            },
+                            screen: appScreen,
+                          ),
                         )
                       ],
                     ),
-                  )
-              ),
+                  )),
               Expanded(
                   flex: 5,
                   child: Container(
@@ -82,13 +86,14 @@ class UserResponsiveScreen extends StatelessWidget {
                     child: Stack(
                       children: [
                         Container(
-                         //color: Colors.blue,
+                          //color: Colors.blue,
                           height: 220,
                           width: MediaQuery.of(context).size.width,
                           child: ScrollConfiguration(
-                            behavior: ScrollConfiguration.of(context).copyWith(scrollbars: true),
+                            behavior: ScrollConfiguration.of(context)
+                                .copyWith(scrollbars: true),
                             child: ListView(
-                            physics: NeverScrollableScrollPhysics(),
+                              physics: NeverScrollableScrollPhysics(),
                               children: [
                                 Container(
                                   //color: Colors.redAccent,
@@ -106,12 +111,11 @@ class UserResponsiveScreen extends StatelessWidget {
                                     children: appBarSpaceChildren,
                                   ),
                                 ),
-                                if(tableHeadingIsThere)
+                                if (tableHeadingIsThere)
                                   Container(
                                     // color: Colors.greenAccent,
                                     child: tableHeading,
                                   ),
-
                               ],
                             ),
                           ),
@@ -219,5 +223,4 @@ class UserResponsiveScreen extends StatelessWidget {
       );
     }
   }
-
 }
